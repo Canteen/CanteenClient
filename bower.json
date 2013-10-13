@@ -1,0 +1,9 @@
+{
+  "name": "Canteen",
+  "version": "1.0.0",
+  "main": "lib/Canteen-1.0.0.min.js",
+  "dependencies": {
+    "jquery": "1.9.1",
+	"history.js": "1.8.0"
+  }
+}
