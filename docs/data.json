@@ -2,7 +2,7 @@
     "project": {
         "name": "Canteen Client API",
         "description": "The front-end client JavaScript for a Canteen site.",
-        "version": "${version}",
+        "version": "1.0.0",
         "logo": ""
     },
     "files": {
