@@ -2,6 +2,8 @@
 
 The front-end client JavaScript for a Canteen site. This uses the HTML5 History API and jQuery to interact with the Canteen Framework to create an easy-to-build stateless website.
 
+For documentation of the codebase, please see [Canteen Client docs](http://canteen.github.io/CanteenClient/).
+
 ##Usage
 
 ```js
@@ -22,6 +24,24 @@ $(function(){
 + History.js
 + CanteenFramework
 
-##Documentation
+###Rebuild Documentation
 
-For more information about how to interaction with the Site, please refer to the `docs` folder.
+This library is auto-documented using [YUIDoc](http://yui.github.io/yuidoc/). To install YUIDoc, run `sudo npm install yuidocjs`. Also, this requires the project [CanteenTheme](http://github.com/Canteen/CanteenTheme) be checked-out along-side this repository. To rebuild the docs, run the ant task from the command-line. 
+
+```bash
+ant docs
+```
+
+###Rebuild Documentation
+
+This library is auto-documented using [YUIDoc](http://yui.github.io/yuidoc/). To install YUIDoc, run `sudo npm install yuidocjs`. Also, this requires the project [CanteenTheme](http://github.com/Canteen/CanteenTheme) be checked-out along-side this repository. To rebuild the docs, run the ant task from the command-line. 
+
+```bash
+ant docs
+```
+
+##License##
+
+Copyright (c) 2013 [Matt Karl](http://github.com/bigtimebuddy)
+
+Released under the MIT License.
