@@ -1,0 +1,1787 @@
+{
+    "project": {
+        "name": "Canteen Client API",
+        "description": "The front-end client JavaScript for a Canteen site.",
+        "version": "1.0.0",
+        "logo": ""
+    },
+    "files": {
+        "src/Canteen/Debug/Debug.js": {
+            "name": "src/Canteen/Debug/Debug.js",
+            "modules": {},
+            "classes": {
+                "Debug": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Forms/Forms.js": {
+            "name": "src/Canteen/Forms/Forms.js",
+            "modules": {},
+            "classes": {
+                "Canteen.Forms": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Plugins/InternalLink.js": {
+            "name": "src/Canteen/Plugins/InternalLink.js",
+            "modules": {
+                "jQuery": 1
+            },
+            "classes": {
+                "jQuery.internalLink": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Plugins/Touch.js": {
+            "name": "src/Canteen/Plugins/Touch.js",
+            "modules": {},
+            "classes": {
+                "jQuery.touch": 1,
+                "jQuery.untouch": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Utilities/LocationUtils.js": {
+            "name": "src/Canteen/Utilities/LocationUtils.js",
+            "modules": {
+                "Canteen": 1
+            },
+            "classes": {
+                "Canteen.LocationUtils": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Utilities/SavedData.js": {
+            "name": "src/Canteen/Utilities/SavedData.js",
+            "modules": {},
+            "classes": {
+                "Canteen.SavedData": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/EventDispatcher.js": {
+            "name": "src/Canteen/EventDispatcher.js",
+            "modules": {},
+            "classes": {
+                "Canteen.EventDispatcher": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Gateway.js": {
+            "name": "src/Canteen/Gateway.js",
+            "modules": {},
+            "classes": {
+                "Canteen.Gateway": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Page.js": {
+            "name": "src/Canteen/Page.js",
+            "modules": {},
+            "classes": {
+                "Canteen.Page": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Site.js": {
+            "name": "src/Canteen/Site.js",
+            "modules": {},
+            "classes": {
+                "Canteen.Site": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/bind.js": {
+            "name": "src/bind.js",
+            "modules": {
+                "global": 1
+            },
+            "classes": {
+                "Function.prototype.bind": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/namespace.js": {
+            "name": "src/namespace.js",
+            "modules": {},
+            "classes": {
+                "namespace": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "global": {
+            "name": "global",
+            "submodules": {},
+            "classes": {
+                "Debug": 1,
+                "Function.prototype.bind": 1,
+                "namespace": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/namespace.js",
+            "line": 8
+        },
+        "Canteen": {
+            "name": "Canteen",
+            "submodules": {},
+            "classes": {
+                "Canteen.Forms": 1,
+                "Canteen.LocationUtils": 1,
+                "Canteen.SavedData": 1,
+                "Canteen.EventDispatcher": 1,
+                "Canteen.Gateway": 1,
+                "Canteen.Page": 1,
+                "Canteen.Site": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Canteen/Site.js",
+            "line": 15
+        },
+        "jQuery": {
+            "name": "jQuery",
+            "submodules": {},
+            "classes": {
+                "jQuery.internalLink": 1,
+                "jQuery.touch": 1,
+                "jQuery.untouch": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Canteen/Plugins/Touch.js",
+            "line": 43
+        }
+    },
+    "classes": {
+        "Debug": {
+            "name": "Debug",
+            "shortname": "Debug",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "global",
+            "namespace": "",
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 8,
+            "description": "A static closure to provide easy access to the console\nwithout having errors if the console doesn't exist\nto use call:\n\n\tDebug.log('Your log here')"
+        },
+        "Canteen.Forms": {
+            "name": "Canteen.Forms",
+            "shortname": "Canteen.Forms",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 9,
+            "description": "Override all the basic form submission to process\nforms using Ajax and stateless behavior.",
+            "author": "Matt Karl <matt@cloudkid.com>"
+        },
+        "jQuery.internalLink": {
+            "name": "jQuery.internalLink",
+            "shortname": "jQuery.internalLink",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "jQuery",
+            "namespace": "",
+            "file": "src/Canteen/Plugins/InternalLink.js",
+            "line": 5,
+            "description": "Handle all of the internal site links",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "site",
+                    "description": "The reference to the site",
+                    "type": "Canteen.Site"
+                }
+            ]
+        },
+        "jQuery.touch": {
+            "name": "jQuery.touch",
+            "shortname": "jQuery.touch",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "jQuery",
+            "namespace": "",
+            "file": "src/Canteen/Plugins/Touch.js",
+            "line": 25,
+            "description": "Create a convenience function for the touch event which does a much better\njob at handling touch events responsively. The click event adds a delay\nbut sometimes we want the touch to be immediate.\n\n\t$('a').touch(function(e){\n\t\t// Handle\n\t})",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "handler",
+                    "description": "The touch handler",
+                    "type": "Function"
+                }
+            ]
+        },
+        "jQuery.untouch": {
+            "name": "jQuery.untouch",
+            "shortname": "jQuery.untouch",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "jQuery",
+            "namespace": "",
+            "file": "src/Canteen/Plugins/Touch.js",
+            "line": 43,
+            "description": "Remove the touch handler that have been set using touch().\n\n\t$('a').untouch();"
+        },
+        "Canteen.LocationUtils": {
+            "name": "Canteen.LocationUtils",
+            "shortname": "Canteen.LocationUtils",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Utilities/LocationUtils.js",
+            "line": 8,
+            "description": "Utility function for parsing the location, address\nand query string parameters",
+            "static": 1,
+            "author": "Matt Karl <matt@cloudkid.com>"
+        },
+        "Canteen.SavedData": {
+            "name": "Canteen.SavedData",
+            "shortname": "Canteen.SavedData",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Utilities/SavedData.js",
+            "line": 7,
+            "description": "Utility class for saving data to JavaScript cookies",
+            "static": 1,
+            "author": "Matt Karl <matt@cloudkid.com>"
+        },
+        "Canteen.EventDispatcher": {
+            "name": "Canteen.EventDispatcher",
+            "shortname": "Canteen.EventDispatcher",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 8,
+            "description": "The EventDispatcher mirrors the functionality of AS3 and CreateJS's EventDispatcher, \nbut is more robust in terms of inputs for the `on()` and `off()` methods."
+        },
+        "Canteen.Gateway": {
+            "name": "Canteen.Gateway",
+            "shortname": "Canteen.Gateway",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Gateway.js",
+            "line": 8,
+            "description": "The Gateway object is responsible for connecting\nto the json gateway for site data",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "gatewayUrl",
+                    "description": "The url to the gateway",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The callback function when server is read",
+                    "type": "Function"
+                }
+            ],
+            "author": "Matt Karl <matt@cloudkid.com>"
+        },
+        "Canteen.Page": {
+            "name": "Canteen.Page",
+            "shortname": "Canteen.Page",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Page.js",
+            "line": 8,
+            "description": "The page object is extend by an page controllers"
+        },
+        "Canteen.Site": {
+            "name": "Canteen.Site",
+            "shortname": "Canteen.Site",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Site.js",
+            "line": 15,
+            "description": "The Canteen Site is the client wrapper for the server API. Here's an example\nof how to initialize on your site:\n\t\n\t$(function(){\n\t\tvar site = new Canteen.Site({\n\t\t\tcontentId : \"#content\",\n\t\t\tpageTitleId : \"#pageTitle\"\n\t\t});\n\t\tsite.on('ready', function(){\n\t\t\t// Site is ready!\n\t\t});\n\t});",
+            "extends": "Canteen.EventDispatcher",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "The customization options",
+                    "type": "Dictionary",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "contentId",
+                            "description": "The jQuery selector for target of the page content",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "pageTitleId",
+                            "description": "The jquery selector for the target of the page title",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "pageLoadingId",
+                            "description": "The jQuery selector to add loading class for page loading",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "siteLoadingId",
+                            "description": "The jQuery selector to add loading class for site",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "loadingClass",
+                            "description": "The name of the class to show page or site loading",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "Function.prototype.bind": {
+            "name": "Function.prototype.bind",
+            "shortname": "Function.prototype.bind",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "global",
+            "namespace": "",
+            "file": "src/bind.js",
+            "line": 11,
+            "description": "Designed to provide utility related to functions, the\nmost important of which is the Bind function, used to properly scope callbacks.\nAdd the bind functionality to the Function prototype\nthis allows passing a reference in the function callback\n\n\tcallback.bind(this)\n\tcallback.bind(this, arg1)",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "that",
+                    "description": "The reference to the function.",
+                    "type": "Object"
+                },
+                {
+                    "name": "args*",
+                    "description": "Additional arguments",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "The new function binding.",
+                "type": "Function"
+            }
+        },
+        "namespace": {
+            "name": "namespace",
+            "shortname": "namespace",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "global",
+            "namespace": "",
+            "file": "src/namespace.js",
+            "line": 8,
+            "description": "Create the namespace and assing to the window.\n \n\tnamespace('cloudkid.utils').SpriteUtils = function(){};",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "namespaceString",
+                    "description": "Name space, for instance 'cloudkid.utils'",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Return the namespace",
+                "type": "Object"
+            }
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 19,
+            "description": "If we have a console",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "property",
+            "name": "_hasConsole",
+            "type": "Boolean",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 27,
+            "description": "The most general, default log level",
+            "itemtype": "property",
+            "name": "GENERAL",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "0",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 36,
+            "description": "The log level for debug statements",
+            "itemtype": "property",
+            "name": "DEBUG",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "1",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 45,
+            "description": "The log level for info statements",
+            "itemtype": "property",
+            "name": "INFO",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "2",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 54,
+            "description": "The log level for warn statements",
+            "itemtype": "property",
+            "name": "WARN",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "3",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 63,
+            "description": "The log level for error statements",
+            "itemtype": "property",
+            "name": "ERROR",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "4",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 72,
+            "description": "The minimum log level to show, by default it's set to\nshow all levels of logging.",
+            "static": 1,
+            "itemtype": "property",
+            "name": "minLogLevel",
+            "type": "Int",
+            "default": "Debug.GENERAL",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 81,
+            "description": "Boolean to turn on or off the debugging",
+            "static": 1,
+            "itemtype": "property",
+            "name": "enabled",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 89,
+            "description": "The output jQuery element",
+            "static": 1,
+            "itemtype": "property",
+            "name": "output",
+            "type": "JQuery",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 96,
+            "description": "Sent to the output on the page",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "output",
+            "params": [
+                {
+                    "name": "level",
+                    "description": "The output level name",
+                    "type": "String"
+                },
+                {
+                    "name": "args",
+                    "description": "The arguments to output",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 112,
+            "description": "Log something in the console",
+            "itemtype": "method",
+            "name": "log",
+            "static": 1,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to log",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 127,
+            "description": "Debug something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "debug",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to debug",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 142,
+            "description": "Info something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "info",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to info",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 157,
+            "description": "Warn something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "warn",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to warn",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 172,
+            "description": "Error something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "error",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to error",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 187,
+            "description": "Prepare the fatal error and show the stack trace",
+            "static": 1,
+            "itemtype": "method",
+            "name": "fatalError",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The fatal error from the server",
+                    "type": "Object"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 206,
+            "description": "Assert that something is true",
+            "static": 1,
+            "itemtype": "method",
+            "name": "assert",
+            "params": [
+                {
+                    "name": "truth",
+                    "description": "As statement that is assumed true",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "params",
+                    "description": "The addition parameters",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 226,
+            "description": "Method to describe an object in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "dir",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The object to describe",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 240,
+            "description": "Method to clear the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "clear",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "Optional parameters",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Debug/Debug.js",
+            "line": 255,
+            "description": "Generate a stack track in the output",
+            "static": 1,
+            "itemtype": "method",
+            "name": "trace",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "Optional parameters",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 17,
+            "description": "The constant for the error class",
+            "itemtype": "property",
+            "name": "ERROR",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "error",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 26,
+            "description": "The constant For the disabled class",
+            "itemtype": "property",
+            "name": "DISABLED",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "disabled",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 35,
+            "description": "The constant for the selected class",
+            "itemtype": "property",
+            "name": "SELECTED",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "selected",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 44,
+            "description": "The constant for the over class",
+            "itemtype": "property",
+            "name": "OVER",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "over",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 53,
+            "description": "The constant for the required class",
+            "itemtype": "property",
+            "name": "REQUIRED",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "required",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 62,
+            "description": "Form feedback when errored",
+            "itemtype": "property",
+            "name": "FEEDBACK_ERROR",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "formError",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 71,
+            "description": "Form feedback when successful",
+            "itemtype": "property",
+            "name": "FEEDBACK_SUCCESS",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "formSuccess",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 80,
+            "description": "Setup form with helper javascript",
+            "itemtype": "method",
+            "name": "setup",
+            "static": 1,
+            "params": [
+                {
+                    "name": "site",
+                    "description": "The instance of the site",
+                    "type": "Canteen.Site"
+                }
+            ],
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 187,
+            "description": "Handler when a form is submitted",
+            "itemtype": "method",
+            "name": "handleSubmit",
+            "static": 1,
+            "params": [
+                {
+                    "name": "site",
+                    "description": "The instance of the current site",
+                    "type": "Canteen.Site"
+                },
+                {
+                    "name": "form",
+                    "description": "The jQuery node for the form",
+                    "type": "JQuery"
+                }
+            ],
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 314,
+            "description": "Show the form feedback",
+            "itemtype": "method",
+            "name": "formFeedback",
+            "static": 1,
+            "params": [
+                {
+                    "name": "form",
+                    "description": "The form to display feedback form",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "feedback",
+                    "description": "The feedback list of string messages",
+                    "type": "Array"
+                },
+                {
+                    "name": "error",
+                    "description": "If the feedback is error",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms/Forms.js",
+            "line": 352,
+            "description": "Make an ajax form request to Canteen",
+            "itemtype": "method",
+            "name": "async",
+            "static": 1,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The object of parameters to pass",
+                    "type": "Dictionary"
+                },
+                {
+                    "name": "successCallback",
+                    "description": "The optional function to callback if successful",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "errorCallback",
+                    "description": "The optional function to callback if errored",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Plugins/Touch.js",
+            "line": 5,
+            "description": "Use this instead of click, this will use the correct\nevent for given touch type. Fallback to mouseup event",
+            "class": "jQuery.touch",
+            "module": "jQuery"
+        },
+        {
+            "file": "src/Canteen/Utilities/LocationUtils.js",
+            "line": 21,
+            "description": "Define all of the query string parameters",
+            "static": 1,
+            "itemtype": "method",
+            "name": "getParameters",
+            "return": {
+                "description": "The collection of query string parameters",
+                "type": "Dictionary"
+            },
+            "class": "Canteen.LocationUtils",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Utilities/SavedData.js",
+            "line": 18,
+            "description": "Use this value in place of 'days' to save data that expires \nwhen the Date object no longer functions (more than 270 \nthousand years from now)",
+            "itemtype": "property",
+            "name": "NEVER_EXPIRE",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "default": "neverExpire",
+            "class": "Canteen.SavedData",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Utilities/SavedData.js",
+            "line": 29,
+            "description": "Clear a cookie value by name",
+            "itemtype": "method",
+            "name": "clear",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the cooie property",
+                    "type": "String"
+                }
+            ],
+            "class": "Canteen.SavedData",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Utilities/SavedData.js",
+            "line": 40,
+            "description": "Create a cookie variable",
+            "itemtype": "method",
+            "name": "write",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the cookie to create",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "The value to save",
+                    "type": "Mixed"
+                },
+                {
+                    "name": "days",
+                    "description": "The number of days to keep - omit this to have the data \n       cleared when the browser is closed",
+                    "type": "Int"
+                }
+            ],
+            "class": "Canteen.SavedData",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Utilities/SavedData.js",
+            "line": 70,
+            "description": "Read the value of the cookie",
+            "itemtype": "method",
+            "name": "read",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the cookie",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The value or null if it doesn't exist",
+                "type": "Mixed"
+            },
+            "class": "Canteen.SavedData",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 19,
+            "description": "The collection of listeners",
+            "itemtype": "property",
+            "name": "_listeners",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 26,
+            "description": "Dispatch an event",
+            "itemtype": "method",
+            "name": "trigger",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "The event string name,",
+                    "type": "String"
+                },
+                {
+                    "name": "params",
+                    "description": "Additional parameters",
+                    "type": "*"
+                }
+            ],
+            "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 45,
+            "description": "Add an event listener",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The type of event (can be multiple events separated by spaces), \n        or a map of events to handlers",
+                    "type": "String|object"
+                },
+                {
+                    "name": "callback",
+                    "description": "The callback function when event is fired or an array of callbacks.",
+                    "type": "Function|Array*"
+                }
+            ],
+            "return": {
+                "description": "Return this EventDispatcher",
+                "type": "cloudkid.EventDispatcher"
+            },
+            "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 93,
+            "description": "Remove the event listener",
+            "itemtype": "method",
+            "name": "off",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The type of event string separated by spaces, if no name is specifed remove all listeners.",
+                    "type": "String*"
+                },
+                {
+                    "name": "callback",
+                    "description": "The listener function or collection of callback functions",
+                    "type": "Function|Array*"
+                }
+            ],
+            "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 141,
+            "description": "Return type of the value.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "type",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "The type",
+                "type": "String"
+            },
+            "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/EventDispatcher.js",
+            "line": 162,
+            "description": "Returns callback array index.",
+            "itemtype": "method",
+            "name": "_callbackIndex",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "Event name.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "Function",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "Callback array index, or -1 if isn't registered.",
+                "type": "Int"
+            },
+            "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Gateway.js",
+            "line": 25,
+            "description": "The url of the gateway service",
+            "itemtype": "property",
+            "name": "gatewayUrl",
+            "type": "String",
+            "class": "Canteen.Gateway",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Gateway.js",
+            "line": 31,
+            "description": "Estable a connection to the gatewayUrl",
+            "itemtype": "method",
+            "name": "initialize",
+            "params": [
+                {
+                    "name": "gatewayUrl",
+                    "description": "The url to the gateway",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The callback function when server is read",
+                    "type": "Function"
+                }
+            ],
+            "class": "Canteen.Gateway",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Gateway.js",
+            "line": 56,
+            "description": "Main call for the service",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "The callback when we're done",
+                    "type": "Function"
+                },
+                {
+                    "name": "service",
+                    "description": "The service to call from",
+                    "type": "String"
+                },
+                {
+                    "name": "method",
+                    "description": "The service method name",
+                    "type": "String"
+                },
+                {
+                    "name": "parameters",
+                    "description": "Optional, additional parameters to pass to service call",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "class": "Canteen.Gateway",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Gateway.js",
+            "line": 98,
+            "description": "Destroy the Gateway and don't use after this",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "Canteen.Gateway",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 17,
+            "description": "The reference to the site",
+            "itemtype": "property",
+            "name": "site",
+            "type": "Canteen.Site",
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 23,
+            "description": "The current page stub",
+            "itemtype": "property",
+            "name": "uri",
+            "type": "String",
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 29,
+            "description": "Called by the site. This enters the page.\nAny initialization should happen here",
+            "itemtype": "method",
+            "name": "enter",
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 39,
+            "description": "Called by the site, exits this page\nany memory cleanup/unbind should happen here",
+            "itemtype": "method",
+            "name": "exit",
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 49,
+            "description": "Called when the location has been updated, but not the page\nfor instance, if a dynamic page changes.",
+            "itemtype": "method",
+            "name": "refresh",
+            "return": {
+                "description": "If there should be a hard site refresh",
+                "type": "Boolean"
+            },
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 61,
+            "description": "Resize function called by the site",
+            "itemtype": "method",
+            "name": "resize",
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 47,
+            "description": "The last uri page request made, helps clear up traffic jams",
+            "itemtype": "property",
+            "name": "_lastRequest",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 54,
+            "description": "The current state count",
+            "itemtype": "property",
+            "name": "_currentId",
+            "type": "Int",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 61,
+            "description": "The string of the current state",
+            "itemtype": "property",
+            "name": "_currentState",
+            "type": "String",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 68,
+            "description": "An array of the pages",
+            "itemtype": "property",
+            "name": "_pages",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 75,
+            "description": "If there's a page for the current state",
+            "itemtype": "property",
+            "name": "_currentPage",
+            "type": "Canteen.Page",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 82,
+            "description": "The current default options",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 86,
+            "description": "The jQuery selector for target of the page content",
+            "itemtype": "property",
+            "name": "options.contentId",
+            "type": "String",
+            "default": "#content",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 93,
+            "description": "The jquery selector for the target of the page title",
+            "itemtype": "property",
+            "name": "options.pageTitleId",
+            "type": "String",
+            "default": "h1",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 100,
+            "description": "The jQuery selector to add loading class for page loading",
+            "itemtype": "property",
+            "name": "options.pageLoadingId",
+            "type": "String",
+            "default": "article",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 107,
+            "description": "The jQuery selector to add loading class for site",
+            "itemtype": "property",
+            "name": "options.siteLoadingId",
+            "type": "String",
+            "default": "body",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 114,
+            "description": "The name of the class to show page or site loading",
+            "itemtype": "property",
+            "name": "options.loadingClass",
+            "type": "String",
+            "default": "loading",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 122,
+            "description": "The instancee of the gateway",
+            "itemtype": "property",
+            "name": "gateway",
+            "type": "Gateway",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 128,
+            "description": "The collection of query string parameters",
+            "itemtype": "property",
+            "name": "parameters",
+            "type": "Dictionary",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 134,
+            "description": "The current setup options",
+            "itemtype": "property",
+            "name": "options",
+            "type": "Dictionary",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 140,
+            "description": "A Canteen Page has entered",
+            "itemtype": "event",
+            "name": "enter",
+            "params": [
+                {
+                    "name": "uri",
+                    "description": "The page URI being entered",
+                    "type": "String"
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 147,
+            "description": "A Canteen Page has exited completed",
+            "itemtype": "event",
+            "name": "exit",
+            "params": [
+                {
+                    "name": "uri",
+                    "description": "The page URI being exited",
+                    "type": "String"
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 154,
+            "description": "The entire site is ready",
+            "itemtype": "event",
+            "name": "ready",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 160,
+            "description": "The page is starting load",
+            "itemtype": "event",
+            "name": "loading",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 166,
+            "description": "The page loading is done",
+            "itemtype": "event",
+            "name": "loadingDone",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 172,
+            "description": "The current site version",
+            "itemtype": "property",
+            "name": "VERSION",
+            "type": "String",
+            "readonly": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 179,
+            "description": "Constructor for the site",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 208,
+            "description": "Enable the history",
+            "itemtype": "method",
+            "name": "_enableHistory",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "enable",
+                    "description": "If the history state change should be on",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 221,
+            "description": "Redirect the page to a URI (about/overview)",
+            "itemtype": "method",
+            "name": "redirect",
+            "params": [
+                {
+                    "name": "uri",
+                    "description": "The site uri, without the base url",
+                    "type": "String"
+                },
+                {
+                    "name": "replaceInHistory",
+                    "description": "If we should replace the current page \n       in the history",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                },
+                {
+                    "name": "allowRefresh",
+                    "description": "If we should allow page refreshes\n       if the user redirects to the current page (default is false)",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 267,
+            "description": "The current state URI",
+            "itemtype": "property",
+            "name": "currentState",
+            "type": "String",
+            "readonly": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 279,
+            "description": "Get the current page object",
+            "itemtype": "property",
+            "name": "currentPage",
+            "type": "Canteen.Page",
+            "readonly": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 291,
+            "description": "Do a refresh of the page content",
+            "itemtype": "method",
+            "name": "refresh",
+            "params": [
+                {
+                    "name": "async",
+                    "description": "If the refresh should be asyncronous",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                },
+                {
+                    "name": "params",
+                    "description": "If async, some optional post parameters",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 306,
+            "description": "Fix the page links, form element and anything that requires jQuery",
+            "itemtype": "method",
+            "name": "_fixInternalLinks",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 317,
+            "description": "Handler for the history state change",
+            "itemtype": "method",
+            "name": "_onStateChanged",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 339,
+            "description": "Callback when a gateway is finished setting up",
+            "itemtype": "method",
+            "name": "_gatewayReady",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "succes",
+                    "description": "If gateway initialization was successfully",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 368,
+            "description": "Called whenever the window resizes, pass along to page",
+            "itemtype": "method",
+            "name": "resize",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 380,
+            "description": "Bind a uri to a page class",
+            "itemtype": "method",
+            "name": "addPage",
+            "params": [
+                {
+                    "name": "uriOrRegExp",
+                    "description": "The page uri or regular expression of uri",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "pageInstance",
+                    "description": "The Page object to use for uri",
+                    "type": "Canteen.Page"
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 402,
+            "description": "Get the page for the current state",
+            "itemtype": "method",
+            "name": "_enterPage",
+            "access": "private",
+            "tagname": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 420,
+            "description": "Get a specific page by a uri",
+            "itemtype": "method",
+            "name": "getPageByUri",
+            "params": [
+                {
+                    "name": "uri",
+                    "description": "The uri to fetch page for",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The page object or null, if no page is found",
+                "type": "Canteen.Page"
+            },
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 449,
+            "description": "Update the page content",
+            "itemtype": "method",
+            "name": "_updatePageContent",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "uri",
+                    "description": "The uri to request page for",
+                    "type": "String"
+                },
+                {
+                    "name": "params",
+                    "description": "Post parameters to pass to the page",
+                    "type": "Dictionary",
+                    "optional": true
+                }
+            ],
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nUse this instead of click, this will use the correct\nevent for given touch type. Fallback to mouseup event",
+            "line": " src/Canteen/Plugins/Touch.js:5"
+        },
+        {
+            "message": "Missing item type\nThe current default options",
+            "line": " src/Canteen/Site.js:82"
+        },
+        {
+            "message": "Missing item type\nConstructor for the site",
+            "line": " src/Canteen/Site.js:179"
+        }
+    ]
+}
