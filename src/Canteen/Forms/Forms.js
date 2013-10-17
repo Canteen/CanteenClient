@@ -118,11 +118,18 @@
 		
 		for(i=0; i < len; i++)
 		{
-			$("input[type='"+types[i]+"']")
+			var elements = $("input[type='"+types[i]+"']")
 				.removeClass(types[i])
 				.addClass(types[i])
 				.hover(onRollOver, onRollOut)
 				.keydown(onKeyDown);
+			
+			// Save the original disabled state
+			// of the element
+			if (elements.prop('disabled')) 
+			{
+				elements.data('disabled', true);
+			}
 		}
 		
 		// Add required field for form processing
@@ -287,7 +294,7 @@
 							params: params,
 							feedback: response.messages
 						});
-						formElements.enabled();
+						formElements.enabled(true);
 					}
 				}, function(response){
 					if (response.redirect)
@@ -305,7 +312,7 @@
 						params: params,
 						feedback: response.messages
 					});
-					formElements.enabled();
+					formElements.enabled(true);
 				}
 			);
 		}
@@ -399,12 +406,16 @@
 	
 	// Disable the selection
 	$.fn.enabled = function(enabled) {
-		enabled = enabled === undefined ? true : enabled;
-		return this.each(function() {         
-			$(this).prop('disabled', !enabled)
-				.removeClass(Forms.DISABLED);
-			if (!enabled) 
-				$(this).addClass(Forms.DISABLED);
+		return this.each(function() {
+			var el = $(this),
+				orig = el.data('disabled');
+			
+			el.prop('disabled', !enabled);
+			
+			if (!enabled)
+				el.addClass(Forms.DISABLED);
+			else if (!orig)
+				el.removeClass(Forms.DISABLED);
 		});
 	};
 	
