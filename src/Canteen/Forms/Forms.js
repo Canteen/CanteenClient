@@ -383,7 +383,7 @@
 				response = JSON.parse(response);
 				if (response.type == 'fatalError')
 				{
-					Debug.fatalError(response.errors);
+					Debug.fatalError(response);
 					return;
 				}
 				if (response.ifError)

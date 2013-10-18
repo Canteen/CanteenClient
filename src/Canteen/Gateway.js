@@ -87,7 +87,7 @@
 			var data = JSON.parse(response);
 			if (data.type == 'fatalError')
 			{
-				Debug.fatalError(data.errors);
+				Debug.fatalError(data);
 				callback(null);
 				return;
 			}

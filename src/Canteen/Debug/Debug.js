@@ -192,12 +192,12 @@
 	*/
 	Debug.fatalError = function(error)
 	{		
-		result = error.message + "\non " + error.file + " (code: " + error.code + ")\n";
+		var result = error.message + "\non " + error.file + " (code: " + error.code + ")\n";
 		if (error.stackTrace)
 		{
 			for(var j=0; j < error.stackTrace.length; j++)
 			{
-				result += "\t #" + (j+1) + ". " + error.stackTrace[j];
+				result += "\n\t #" + (j+1) + ". " + error.stackTrace[j];
 			}
 		}
 		Debug.error(result);
