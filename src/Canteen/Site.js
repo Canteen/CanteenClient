@@ -183,20 +183,23 @@
 	{
 		var opts = $.extend(this.options, _defaultOptions, options);
 		
+		// Disable the client
+		if (Canteen.settings.clientEnabled !== undefined && !Canteen.settings.clientEnabled) return;
+		
 		// Show the loading on the body
 		$(opts.siteLoadingId).addClass(opts.loadingClass);
+		
+		// Get the query string parameters
+		this.parameters = LocationUtils.getParameters();
+		
+		// Enable the debug base on the settings
+		Debug.enabled = Canteen.settings.debug;
 		
 		// Setup history
 		_currentId = 1;
 		_currentState = Canteen.settings.uriRequest;
 		this._enableHistory(true);
 		this._fixInternalLinks();
-		
-		// Enable the debug base on the settings
-		Debug.enabled = Canteen.settings.debug;
-		
-		// Get the query string parameters
-		this.parameters = LocationUtils.getParameters();
 		
 		// Initialize the gateway
 		this.gateway = new Gateway(
