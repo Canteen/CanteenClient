@@ -886,7 +886,7 @@
         },
         {
             "file": "src/Canteen/Forms/Forms.js",
-            "line": 187,
+            "line": 194,
             "description": "Handler when a form is submitted",
             "itemtype": "method",
             "name": "handleSubmit",
@@ -908,7 +908,7 @@
         },
         {
             "file": "src/Canteen/Forms/Forms.js",
-            "line": 314,
+            "line": 321,
             "description": "Show the form feedback",
             "itemtype": "method",
             "name": "formFeedback",
@@ -935,7 +935,7 @@
         },
         {
             "file": "src/Canteen/Forms/Forms.js",
-            "line": 352,
+            "line": 359,
             "description": "Make an ajax form request to Canteen",
             "itemtype": "method",
             "name": "async",
@@ -1552,7 +1552,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 208,
+            "line": 211,
             "description": "Enable the history",
             "itemtype": "method",
             "name": "_enableHistory",
@@ -1570,7 +1570,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 221,
+            "line": 224,
             "description": "Redirect the page to a URI (about/overview)",
             "itemtype": "method",
             "name": "redirect",
@@ -1600,7 +1600,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 267,
+            "line": 270,
             "description": "The current state URI",
             "itemtype": "property",
             "name": "currentState",
@@ -1611,7 +1611,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 279,
+            "line": 282,
             "description": "Get the current page object",
             "itemtype": "property",
             "name": "currentPage",
@@ -1622,7 +1622,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 291,
+            "line": 294,
             "description": "Do a refresh of the page content",
             "itemtype": "method",
             "name": "refresh",
@@ -1646,7 +1646,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 306,
+            "line": 309,
             "description": "Fix the page links, form element and anything that requires jQuery",
             "itemtype": "method",
             "name": "_fixInternalLinks",
@@ -1657,7 +1657,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 317,
+            "line": 320,
             "description": "Handler for the history state change",
             "itemtype": "method",
             "name": "_onStateChanged",
@@ -1668,7 +1668,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 339,
+            "line": 342,
             "description": "Callback when a gateway is finished setting up",
             "itemtype": "method",
             "name": "_gatewayReady",
@@ -1686,7 +1686,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 368,
+            "line": 371,
             "description": "Called whenever the window resizes, pass along to page",
             "itemtype": "method",
             "name": "resize",
@@ -1695,7 +1695,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 380,
+            "line": 383,
             "description": "Bind a uri to a page class",
             "itemtype": "method",
             "name": "addPage",
@@ -1716,7 +1716,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 402,
+            "line": 405,
             "description": "Get the page for the current state",
             "itemtype": "method",
             "name": "_enterPage",
@@ -1727,7 +1727,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 420,
+            "line": 423,
             "description": "Get a specific page by a uri",
             "itemtype": "method",
             "name": "getPageByUri",
@@ -1747,7 +1747,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 449,
+            "line": 452,
             "description": "Update the page content",
             "itemtype": "method",
             "name": "_updatePageContent",
