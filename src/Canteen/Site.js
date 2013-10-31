@@ -233,7 +233,8 @@
 	p.redirect = function(uri, replaceInHistory, allowRefresh)
 	{
 		var state = Canteen.settings.basePath,
-			siteTitle = $('title').html();
+			// Re-encode the title as plain text
+			siteTitle = $('<div />').html($('title').html()).text();
 			
 		replaceInHistory = replaceInHistory === undefined ? false : replaceInHistory;
 		allowRefresh = allowRefresh === undefined ? false : allowRefresh;
@@ -512,7 +513,7 @@
 			$(options.pageLoadingId).removeClass(options.loadingClass);
 			
 			// Check for data
-			if (response == 'null')
+			if (!response || response == 'null')
 			{ 
 				Debug.error('No data for ' + uri); 
 				return; 
@@ -540,7 +541,7 @@
 			$('body').attr('id', data.pageId);
 			$(options.pageTitleId).html(data.title);
 			$(options.contentId).html(data.content);
-			document.title = data.fullTitle;
+			document.title = $('<div />').html(data.fullTitle).text();
 			$("meta[name='keywords']").attr('content', data.keywords);
 			$("meta[name='description']").attr('content', data.description);
 			site._fixInternalLinks();
