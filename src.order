@@ -1,7 +1,7 @@
 bind.js
 namespace.js
+Debug.js
 Canteen/EventDispatcher.js
-Canteen/Debug.js
 Canteen/Plugins/Touch.js
 Canteen/Plugins/InternalLink.js
 Canteen/Utilities/SavedData.js
