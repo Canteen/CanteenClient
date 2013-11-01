@@ -17,7 +17,7 @@
 	*/
 	$.fn.touch = function(handler)
 	{
-		return this.on('touchclick', handler);
+		return this.on('click', false).on('touchclick', handler);
 	};
 
 	/**
