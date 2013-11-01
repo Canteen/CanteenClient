@@ -1,26 +1,6 @@
 	/**
 	* @module jQuery 
 	*/
-	
-	/** 
-	*  Use this instead of click, this will use the correct
-	*  event for given touch type. Fallback to mouseup event
-	*/
-	$.event.special.touch = {
-		setup: function() {
-			// Use touch if the browser supports it
-			var e = ("ontouchend" in document) ? "touchend" : "mouseup",
-				// Check for jQuery 1.9.1+
-				handler = $.event.handle === undefined ? $.event.dispatch : $.event.handle;
-			$(this).on(e + ".touch", function(event) {
-				event.type = "touch";
-				handler.call(this, event);
-			});
-		},
-		teardown: function() {
-			$(this).off(".touch");
-		}
-	};
 
 	/**
 	*  Create a convenience function for the touch event which does a much better
@@ -37,7 +17,7 @@
 	*/
 	$.fn.touch = function(handler)
 	{
-		return this.click(false).on('touch', handler);
+		return this.on('touchclick', handler);
 	};
 
 	/**
@@ -49,5 +29,5 @@
 	*/
 	$.fn.untouch = function()
 	{
-		return this.off('touch');
+		return this.off('touchclick');
 	};
