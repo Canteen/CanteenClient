@@ -6,5 +6,15 @@
     "jquery": "1.10.2",
 	"history.js": "1.8.0",
 	"touchclick": "1.1.4"
+  },
+  "ignore": {
+    ".gitignore",
+    "build.xml",
+    "build.properties",
+    "docs.json",
+    "README.md",
+    "LICENSE",
+    "src",
+    "src.order"
   }
 }
