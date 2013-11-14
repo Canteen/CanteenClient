@@ -315,7 +315,7 @@
 	p._fixInternalLinks = function()
 	{
 		$('a').internalLink(this);
-		Forms.setup(this);
+		Forms.setup(this, (this.parameters.debugForms === "true"));
 	};
 	
 	/**
@@ -484,6 +484,9 @@
 			_currentPage.exit();
 			_currentPage = null;
 		}
+		
+		// Form cleanup
+		Forms.destroy();
 		
 		// Remember the last requestd page
 		// to ignore delayed load requests
