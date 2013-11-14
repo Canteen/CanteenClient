@@ -6,24 +6,6 @@
         "logo": ""
     },
     "files": {
-        "src/Canteen/Debug/Debug.js": {
-            "name": "src/Canteen/Debug/Debug.js",
-            "modules": {},
-            "classes": {
-                "Debug": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
-        "src/Canteen/Forms/Forms.js": {
-            "name": "src/Canteen/Forms/Forms.js",
-            "modules": {},
-            "classes": {
-                "Canteen.Forms": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
         "src/Canteen/Plugins/InternalLink.js": {
             "name": "src/Canteen/Plugins/InternalLink.js",
             "modules": {
@@ -74,6 +56,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Canteen/Forms.js": {
+            "name": "src/Canteen/Forms.js",
+            "modules": {},
+            "classes": {
+                "Canteen.Forms": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Canteen/Gateway.js": {
             "name": "src/Canteen/Gateway.js",
             "modules": {},
@@ -101,11 +92,20 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/bind.js": {
-            "name": "src/bind.js",
+        "src/Debug.js": {
+            "name": "src/Debug.js",
             "modules": {
                 "global": 1
             },
+            "classes": {
+                "Debug": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/bind.js": {
+            "name": "src/bind.js",
+            "modules": {},
             "classes": {
                 "Function.prototype.bind": 1
             },
@@ -123,6 +123,38 @@
         }
     },
     "modules": {
+        "jQuery": {
+            "name": "jQuery",
+            "submodules": {},
+            "classes": {
+                "jQuery.internalLink": 1,
+                "jQuery.touch": 1,
+                "jQuery.untouch": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Canteen/Plugins/Touch.js",
+            "line": 23
+        },
+        "Canteen": {
+            "name": "Canteen",
+            "submodules": {},
+            "classes": {
+                "Canteen.LocationUtils": 1,
+                "Canteen.SavedData": 1,
+                "Canteen.EventDispatcher": 1,
+                "Canteen.Forms": 1,
+                "Canteen.Gateway": 1,
+                "Canteen.Page": 1,
+                "Canteen.Site": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Canteen/Site.js",
+            "line": 15
+        },
         "global": {
             "name": "global",
             "submodules": {},
@@ -136,70 +168,9 @@
             "tag": "module",
             "file": "src/namespace.js",
             "line": 8
-        },
-        "Canteen": {
-            "name": "Canteen",
-            "submodules": {},
-            "classes": {
-                "Canteen.Forms": 1,
-                "Canteen.LocationUtils": 1,
-                "Canteen.SavedData": 1,
-                "Canteen.EventDispatcher": 1,
-                "Canteen.Gateway": 1,
-                "Canteen.Page": 1,
-                "Canteen.Site": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/Canteen/Site.js",
-            "line": 15
-        },
-        "jQuery": {
-            "name": "jQuery",
-            "submodules": {},
-            "classes": {
-                "jQuery.internalLink": 1,
-                "jQuery.touch": 1,
-                "jQuery.untouch": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/Canteen/Plugins/Touch.js",
-            "line": 43
         }
     },
     "classes": {
-        "Debug": {
-            "name": "Debug",
-            "shortname": "Debug",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "global",
-            "namespace": "",
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 8,
-            "description": "A static closure to provide easy access to the console\nwithout having errors if the console doesn't exist\nto use call:\n\n\tDebug.log('Your log here')"
-        },
-        "Canteen.Forms": {
-            "name": "Canteen.Forms",
-            "shortname": "Canteen.Forms",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "Canteen",
-            "namespace": "",
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 9,
-            "description": "Override all the basic form submission to process\nforms using Ajax and stateless behavior.",
-            "author": "Matt Karl <matt@cloudkid.com>"
-        },
         "jQuery.internalLink": {
             "name": "jQuery.internalLink",
             "shortname": "jQuery.internalLink",
@@ -233,7 +204,7 @@
             "module": "jQuery",
             "namespace": "",
             "file": "src/Canteen/Plugins/Touch.js",
-            "line": 25,
+            "line": 5,
             "description": "Create a convenience function for the touch event which does a much better\njob at handling touch events responsively. The click event adds a delay\nbut sometimes we want the touch to be immediate.\n\n\t$('a').touch(function(e){\n\t\t// Handle\n\t})",
             "is_constructor": 1,
             "params": [
@@ -255,7 +226,7 @@
             "module": "jQuery",
             "namespace": "",
             "file": "src/Canteen/Plugins/Touch.js",
-            "line": 43,
+            "line": 23,
             "description": "Remove the touch handler that have been set using touch().\n\n\t$('a').untouch();"
         },
         "Canteen.LocationUtils": {
@@ -303,6 +274,21 @@
             "file": "src/Canteen/EventDispatcher.js",
             "line": 8,
             "description": "The EventDispatcher mirrors the functionality of AS3 and CreateJS's EventDispatcher, \nbut is more robust in terms of inputs for the `on()` and `off()` methods."
+        },
+        "Canteen.Forms": {
+            "name": "Canteen.Forms",
+            "shortname": "Canteen.Forms",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen",
+            "namespace": "",
+            "file": "src/Canteen/Forms.js",
+            "line": 8,
+            "description": "Override all the basic form submission to process\nforms using Ajax and stateless behavior.",
+            "author": "Matt Karl <matt@cloudkid.com>"
         },
         "Canteen.Gateway": {
             "name": "Canteen.Gateway",
@@ -402,6 +388,20 @@
                 }
             ]
         },
+        "Debug": {
+            "name": "Debug",
+            "shortname": "Debug",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "global",
+            "namespace": "",
+            "file": "src/Debug.js",
+            "line": 8,
+            "description": "A static closure to provide easy access to the console\nwithout having errors if the console doesn't exist\nto use call:\n\n\tDebug.log('Your log here')"
+        },
         "Function.prototype.bind": {
             "name": "Function.prototype.bind",
             "shortname": "Function.prototype.bind",
@@ -462,513 +462,6 @@
         }
     },
     "classitems": [
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 19,
-            "description": "If we have a console",
-            "access": "private",
-            "tagname": "",
-            "static": 1,
-            "itemtype": "property",
-            "name": "_hasConsole",
-            "type": "Boolean",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 27,
-            "description": "The most general, default log level",
-            "itemtype": "property",
-            "name": "GENERAL",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "0",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 36,
-            "description": "The log level for debug statements",
-            "itemtype": "property",
-            "name": "DEBUG",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "1",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 45,
-            "description": "The log level for info statements",
-            "itemtype": "property",
-            "name": "INFO",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "2",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 54,
-            "description": "The log level for warn statements",
-            "itemtype": "property",
-            "name": "WARN",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "3",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 63,
-            "description": "The log level for error statements",
-            "itemtype": "property",
-            "name": "ERROR",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "4",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 72,
-            "description": "The minimum log level to show, by default it's set to\nshow all levels of logging.",
-            "static": 1,
-            "itemtype": "property",
-            "name": "minLogLevel",
-            "type": "Int",
-            "default": "Debug.GENERAL",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 81,
-            "description": "Boolean to turn on or off the debugging",
-            "static": 1,
-            "itemtype": "property",
-            "name": "enabled",
-            "type": "Boolean",
-            "default": "true",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 89,
-            "description": "The output jQuery element",
-            "static": 1,
-            "itemtype": "property",
-            "name": "output",
-            "type": "JQuery",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 96,
-            "description": "Sent to the output on the page",
-            "access": "private",
-            "tagname": "",
-            "static": 1,
-            "itemtype": "method",
-            "name": "output",
-            "params": [
-                {
-                    "name": "level",
-                    "description": "The output level name",
-                    "type": "String"
-                },
-                {
-                    "name": "args",
-                    "description": "The arguments to output",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 112,
-            "description": "Log something in the console",
-            "itemtype": "method",
-            "name": "log",
-            "static": 1,
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to log",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 127,
-            "description": "Debug something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "debug",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to debug",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 142,
-            "description": "Info something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "info",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to info",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 157,
-            "description": "Warn something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "warn",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to warn",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 172,
-            "description": "Error something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "error",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to error",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 187,
-            "description": "Prepare the fatal error and show the stack trace",
-            "static": 1,
-            "itemtype": "method",
-            "name": "fatalError",
-            "params": [
-                {
-                    "name": "error",
-                    "description": "The fatal error from the server",
-                    "type": "Object"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 206,
-            "description": "Assert that something is true",
-            "static": 1,
-            "itemtype": "method",
-            "name": "assert",
-            "params": [
-                {
-                    "name": "truth",
-                    "description": "As statement that is assumed true",
-                    "type": "Boolean"
-                },
-                {
-                    "name": "params",
-                    "description": "The addition parameters",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 226,
-            "description": "Method to describe an object in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "dir",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The object to describe",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 240,
-            "description": "Method to clear the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "clear",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "Optional parameters",
-                    "type": "Mixed",
-                    "optional": true
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Debug/Debug.js",
-            "line": 255,
-            "description": "Generate a stack track in the output",
-            "static": 1,
-            "itemtype": "method",
-            "name": "trace",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "Optional parameters",
-                    "type": "Mixed",
-                    "optional": true
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 17,
-            "description": "The constant for the error class",
-            "itemtype": "property",
-            "name": "ERROR",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "error",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 26,
-            "description": "The constant For the disabled class",
-            "itemtype": "property",
-            "name": "DISABLED",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "disabled",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 35,
-            "description": "The constant for the selected class",
-            "itemtype": "property",
-            "name": "SELECTED",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "selected",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 44,
-            "description": "The constant for the over class",
-            "itemtype": "property",
-            "name": "OVER",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "over",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 53,
-            "description": "The constant for the required class",
-            "itemtype": "property",
-            "name": "REQUIRED",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "required",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 62,
-            "description": "Form feedback when errored",
-            "itemtype": "property",
-            "name": "FEEDBACK_ERROR",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "formError",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 71,
-            "description": "Form feedback when successful",
-            "itemtype": "property",
-            "name": "FEEDBACK_SUCCESS",
-            "type": "String",
-            "final": 1,
-            "static": 1,
-            "default": "formSuccess",
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 80,
-            "description": "Setup form with helper javascript",
-            "itemtype": "method",
-            "name": "setup",
-            "static": 1,
-            "params": [
-                {
-                    "name": "site",
-                    "description": "The instance of the site",
-                    "type": "Canteen.Site"
-                }
-            ],
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 194,
-            "description": "Handler when a form is submitted",
-            "itemtype": "method",
-            "name": "handleSubmit",
-            "static": 1,
-            "params": [
-                {
-                    "name": "site",
-                    "description": "The instance of the current site",
-                    "type": "Canteen.Site"
-                },
-                {
-                    "name": "form",
-                    "description": "The jQuery node for the form",
-                    "type": "JQuery"
-                }
-            ],
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 321,
-            "description": "Show the form feedback",
-            "itemtype": "method",
-            "name": "formFeedback",
-            "static": 1,
-            "params": [
-                {
-                    "name": "form",
-                    "description": "The form to display feedback form",
-                    "type": "JQuery"
-                },
-                {
-                    "name": "feedback",
-                    "description": "The feedback list of string messages",
-                    "type": "Array"
-                },
-                {
-                    "name": "error",
-                    "description": "If the feedback is error",
-                    "type": "Boolean"
-                }
-            ],
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Forms/Forms.js",
-            "line": 359,
-            "description": "Make an ajax form request to Canteen",
-            "itemtype": "method",
-            "name": "async",
-            "static": 1,
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The object of parameters to pass",
-                    "type": "Dictionary"
-                },
-                {
-                    "name": "successCallback",
-                    "description": "The optional function to callback if successful",
-                    "type": "Function",
-                    "optional": true
-                },
-                {
-                    "name": "errorCallback",
-                    "description": "The optional function to callback if errored",
-                    "type": "Function",
-                    "optional": true
-                }
-            ],
-            "class": "Canteen.Forms",
-            "module": "Canteen"
-        },
-        {
-            "file": "src/Canteen/Plugins/Touch.js",
-            "line": 5,
-            "description": "Use this instead of click, this will use the correct\nevent for given touch type. Fallback to mouseup event",
-            "class": "jQuery.touch",
-            "module": "jQuery"
-        },
         {
             "file": "src/Canteen/Utilities/LocationUtils.js",
             "line": 21,
@@ -1187,6 +680,156 @@
                 "type": "Int"
             },
             "class": "Canteen.EventDispatcher",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 16,
+            "description": "The constant for the error class",
+            "itemtype": "property",
+            "name": "ERROR",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "error",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 25,
+            "description": "The constant For the disabled class",
+            "itemtype": "property",
+            "name": "DISABLED",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "disabled",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 34,
+            "description": "The constant for the selected class",
+            "itemtype": "property",
+            "name": "SELECTED",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "selected",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 43,
+            "description": "The constant for the required class",
+            "itemtype": "property",
+            "name": "REQUIRED",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "required",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 52,
+            "description": "The constant class name to add a confirmation dialog to a button",
+            "itemtype": "property",
+            "name": "CONFIRM",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "confirm",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 61,
+            "description": "Form feedback when errored",
+            "itemtype": "property",
+            "name": "FEEDBACK_ERROR",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "formError",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 70,
+            "description": "Form feedback when successful",
+            "itemtype": "property",
+            "name": "FEEDBACK_SUCCESS",
+            "type": "String",
+            "final": 1,
+            "static": 1,
+            "default": "formSuccess",
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 79,
+            "description": "Clean up any form elements",
+            "itemtype": "method",
+            "name": "destroy",
+            "static": 1,
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 91,
+            "description": "Setup form with helper javascript",
+            "itemtype": "method",
+            "name": "setup",
+            "static": 1,
+            "params": [
+                {
+                    "name": "site",
+                    "description": "The instance of the site",
+                    "type": "Canteen.Site"
+                },
+                {
+                    "name": "debugForms",
+                    "description": "If we should use ajax for forms",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Canteen.Forms",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Forms.js",
+            "line": 295,
+            "description": "Show the form feedback",
+            "itemtype": "method",
+            "name": "formFeedback",
+            "static": 1,
+            "params": [
+                {
+                    "name": "form",
+                    "description": "The form to display feedback form",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "message",
+                    "description": "The message list of string feedback messages",
+                    "type": "Array"
+                },
+                {
+                    "name": "error",
+                    "description": "If the feedback is error",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "Canteen.Forms",
             "module": "Canteen"
         },
         {
@@ -1600,7 +1243,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 270,
+            "line": 271,
             "description": "The current state URI",
             "itemtype": "property",
             "name": "currentState",
@@ -1611,7 +1254,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 282,
+            "line": 283,
             "description": "Get the current page object",
             "itemtype": "property",
             "name": "currentPage",
@@ -1622,7 +1265,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 294,
+            "line": 295,
             "description": "Do a refresh of the page content",
             "itemtype": "method",
             "name": "refresh",
@@ -1646,7 +1289,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 309,
+            "line": 310,
             "description": "Fix the page links, form element and anything that requires jQuery",
             "itemtype": "method",
             "name": "_fixInternalLinks",
@@ -1657,7 +1300,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 320,
+            "line": 321,
             "description": "Handler for the history state change",
             "itemtype": "method",
             "name": "_onStateChanged",
@@ -1668,7 +1311,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 342,
+            "line": 343,
             "description": "Callback when a gateway is finished setting up",
             "itemtype": "method",
             "name": "_gatewayReady",
@@ -1686,7 +1329,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 371,
+            "line": 372,
             "description": "Called whenever the window resizes, pass along to page",
             "itemtype": "method",
             "name": "resize",
@@ -1695,7 +1338,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 383,
+            "line": 384,
             "description": "Bind a uri to a page class",
             "itemtype": "method",
             "name": "addPage",
@@ -1716,7 +1359,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 405,
+            "line": 406,
             "description": "Get the page for the current state",
             "itemtype": "method",
             "name": "_enterPage",
@@ -1727,7 +1370,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 423,
+            "line": 424,
             "description": "Get a specific page by a uri",
             "itemtype": "method",
             "name": "getPageByUri",
@@ -1747,7 +1390,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 452,
+            "line": 453,
             "description": "Update the page content",
             "itemtype": "method",
             "name": "_updatePageContent",
@@ -1768,13 +1411,323 @@
             ],
             "class": "Canteen.Site",
             "module": "Canteen"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 19,
+            "description": "If we have a console",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "property",
+            "name": "_hasConsole",
+            "type": "Boolean",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 27,
+            "description": "The most general, default log level",
+            "itemtype": "property",
+            "name": "GENERAL",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "0",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 36,
+            "description": "The log level for debug statements",
+            "itemtype": "property",
+            "name": "DEBUG",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "1",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 45,
+            "description": "The log level for info statements",
+            "itemtype": "property",
+            "name": "INFO",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "2",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 54,
+            "description": "The log level for warn statements",
+            "itemtype": "property",
+            "name": "WARN",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "3",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 63,
+            "description": "The log level for error statements",
+            "itemtype": "property",
+            "name": "ERROR",
+            "type": "Int",
+            "static": 1,
+            "final": 1,
+            "default": "4",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 72,
+            "description": "The minimum log level to show, by default it's set to\nshow all levels of logging.",
+            "static": 1,
+            "itemtype": "property",
+            "name": "minLogLevel",
+            "type": "Int",
+            "default": "Debug.GENERAL",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 81,
+            "description": "Boolean to turn on or off the debugging",
+            "static": 1,
+            "itemtype": "property",
+            "name": "enabled",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 89,
+            "description": "The output jQuery element",
+            "static": 1,
+            "itemtype": "property",
+            "name": "output",
+            "type": "JQuery",
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 96,
+            "description": "Sent to the output on the page",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "output",
+            "params": [
+                {
+                    "name": "level",
+                    "description": "The output level name",
+                    "type": "String"
+                },
+                {
+                    "name": "args",
+                    "description": "The arguments to output",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 112,
+            "description": "Log something in the console",
+            "itemtype": "method",
+            "name": "log",
+            "static": 1,
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to log",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 127,
+            "description": "Debug something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "debug",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to debug",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 142,
+            "description": "Info something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "info",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to info",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 157,
+            "description": "Warn something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "warn",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to warn",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 172,
+            "description": "Error something in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "error",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The statement or objects to error",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 187,
+            "description": "Prepare the fatal error and show the stack trace",
+            "static": 1,
+            "itemtype": "method",
+            "name": "fatalError",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The fatal error from the server",
+                    "type": "Object"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 206,
+            "description": "Assert that something is true",
+            "static": 1,
+            "itemtype": "method",
+            "name": "assert",
+            "params": [
+                {
+                    "name": "truth",
+                    "description": "As statement that is assumed true",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "params",
+                    "description": "The addition parameters",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 226,
+            "description": "Method to describe an object in the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "dir",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "The object to describe",
+                    "type": "Mixed"
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 240,
+            "description": "Method to clear the console",
+            "static": 1,
+            "itemtype": "method",
+            "name": "clear",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "Optional parameters",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
+        },
+        {
+            "file": "src/Debug.js",
+            "line": 255,
+            "description": "Generate a stack track in the output",
+            "static": 1,
+            "itemtype": "method",
+            "name": "trace",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "Optional parameters",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "class": "Debug",
+            "module": "global"
         }
     ],
     "warnings": [
-        {
-            "message": "Missing item type\nUse this instead of click, this will use the correct\nevent for given touch type. Fallback to mouseup event",
-            "line": " src/Canteen/Plugins/Touch.js:5"
-        },
         {
             "message": "Missing item type\nThe current default options",
             "line": " src/Canteen/Site.js:82"

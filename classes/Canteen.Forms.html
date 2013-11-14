@@ -160,7 +160,7 @@ forms using Ajax and stateless behavior.</p>
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_async">async</a>
+                                <a href="#method_destroy">destroy</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -170,15 +170,6 @@ forms using Ajax and stateless behavior.</p>
                         
                             <li class="index-item method">
                                 <a href="#method_formFeedback">formFeedback</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_handleSubmit">handleSubmit</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -204,6 +195,15 @@ forms using Ajax and stateless behavior.</p>
                     <h3>Properties</h3>
 
                     <ul class="index-list properties">
+                        
+                            <li class="index-item property">
+                                <a href="#property_CONFIRM">CONFIRM</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
                         
                             <li class="index-item property">
                                 <a href="#property_DISABLED">DISABLED</a>
@@ -234,15 +234,6 @@ forms using Ajax and stateless behavior.</p>
                         
                             <li class="index-item property">
                                 <a href="#property_FEEDBACK_SUCCESS">FEEDBACK_SUCCESS</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_OVER">OVER</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -282,33 +273,11 @@ forms using Ajax and stateless behavior.</p>
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_async" class="method item">
-    <h3 class="name"><code>async</code></h3>
+                    <div id="method_destroy" class="method item">
+    <h3 class="name"><code>destroy</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>params</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[successCallback]</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code class="optional">[errorCallback]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -345,68 +314,10 @@ forms using Ajax and stateless behavior.</p>
     </div>
 
     <div class="description">
-        <p>Make an ajax form request to Canteen</p>
+        <p>Clean up any form elements</p>
 
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">params</code>
-                        <span class="type">Dictionary</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The object of parameters to pass</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[successCallback]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The optional function to callback if successful</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name optional">[errorCallback]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The optional function to callback if errored</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     
@@ -430,7 +341,7 @@ forms using Ajax and stateless behavior.</p>
             
                 <li class="arg">
                     
-                        <code>feedback</code>
+                        <code>message</code>
                     
                 </li>
             
@@ -506,14 +417,14 @@ forms using Ajax and stateless behavior.</p>
             
                 <li class="param">
                     
-                        <code class="param-name">feedback</code>
+                        <code class="param-name">message</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The feedback list of string messages</p>
+                        <p>The message list of string feedback messages</p>
 
                     </div>
 
@@ -546,115 +457,6 @@ forms using Ajax and stateless behavior.</p>
 </div>
 
                 
-                    <div id="method_handleSubmit" class="method item">
-    <h3 class="name"><code>handleSubmit</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>site</code>
-                    
-                </li>
-            
-                <li class="arg">
-                    
-                        <code>form</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-            
-        
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Handler when a form is submitted</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">site</code>
-                        <span class="type"><a href="../classes/Canteen.Site.html" class="crosslink">Canteen.Site</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The instance of the current site</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
-                        <code class="param-name">form</code>
-                        <span class="type">JQuery</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The jQuery node for the form</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="method_setup" class="method item">
     <h3 class="name"><code>setup</code></h3>
 
@@ -665,6 +467,12 @@ forms using Ajax and stateless behavior.</p>
                 <li class="arg">
                     
                         <code>site</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>debugForms</code>
                     
                 </li>
             
@@ -732,6 +540,22 @@ forms using Ajax and stateless behavior.</p>
                     
                 </li>
             
+                <li class="param">
+                    
+                        <code class="param-name">debugForms</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>If we should use ajax for forms</p>
+
+                    </div>
+
+                    
+                </li>
+            
             </ul>
         </div>
     
@@ -748,6 +572,53 @@ forms using Ajax and stateless behavior.</p>
         
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_CONFIRM" class="property item">
+    <h3 class="name"><code>CONFIRM</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+        <span class="flag final">final</span>
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+            
+        
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The constant class name to add a confirmation dialog to a button</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> confirm</p>
+    
+
+    
+
+    
+</div>
 
                 
                     <div id="property_DISABLED" class="property item">
@@ -930,53 +801,6 @@ forms using Ajax and stateless behavior.</p>
 
     
         <p><strong>Default:</strong> formSuccess</p>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_OVER" class="property item">
-    <h3 class="name"><code>OVER</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-        <span class="flag final">final</span>
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-            
-        
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The constant for the over class</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> over</p>
     
 
     
