@@ -243,7 +243,8 @@
 			}
 			
 			// There's no error and we should refresh
-			if (!response.ifError && form.refresh.value == 'true')
+			var refresh = form.find('input[name="refresh"]');
+			if (!response.ifError && refresh.length && refresh.val() == 'true')
 			{
 				site.refresh();
 				return;
