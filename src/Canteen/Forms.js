@@ -229,11 +229,17 @@
 				Debug.fatalError(response);
 				return;
 			}
-			
+
+			// There's no error and we should refresh
+			var refresh = form.find('input[name="refresh"]');
+
+			// Use data-async="false" to hard refresh the page
+			var asyncRefresh = refresh.data('async');
+
 			// Check for site redirect
 			if (response.redirect)
 			{
-				site.redirect(response.redirect, false, true);
+				site.redirect(response.redirect, false, true, asyncRefresh);
 				return;
 			}
 			
@@ -242,11 +248,9 @@
 				Debug.log(response.messages.join("\n"));
 			}
 			
-			// There's no error and we should refresh
-			var refresh = form.find('input[name="refresh"]');
 			if (!response.ifError && refresh.length && refresh.val() == 'true')
 			{
-				site.refresh();
+				site.refresh(asyncRefresh);
 				return;
 			} 
 			
