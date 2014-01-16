@@ -1,7 +1,7 @@
 /**
 * @module Canteen 
 */
-(function(){
+(function(undefined){
 	
 	"use strict";
 	
@@ -237,7 +237,7 @@
 			var asyncRefresh = refresh.data('async');
 
 			// Check for site redirect
-			if (response.redirect)
+			if (response.redirect !== undefined)
 			{
 				site.redirect(response.redirect, false, true, asyncRefresh);
 				return;
