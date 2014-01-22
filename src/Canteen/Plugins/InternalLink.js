@@ -85,7 +85,9 @@
 
 			// The link is either the current or the base of the request
 			// or the index page
-			if (uri == state || state.indexOf(uri) === 0 || (uri == index && state === ''))
+			var parent = new RegExp("^"+uri.replace("/", "\/")+"(\/.*)?$");
+
+			if (uri == state || (state !== '' && parent.test(state)) || (uri == index && state === ''))
 				link.addClass('selected');
 		});
 	};
