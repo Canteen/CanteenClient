@@ -1,21 +1,21 @@
 {
-  "name": "Canteen",
-  "version": "1.0.0",
-  "main": "lib/Canteen-1.0.0.min.js",
-  "dependencies": {
-    "jquery": ">=1.10.2",
-	"history.js": ">=1.8.0",
-	"touchclick": ">=1.1.4",
-	"jquery-form": ">=3.45"
-  },
-  "ignore": [
-    ".gitignore",
-    "build.xml",
-    "build.properties",
-    "docs.json",
-    "README.md",
-    "LICENSE",
-    "src",
-    "src.order"
-  ]
+    "name": "Canteen",
+    "version": "1.0.0",
+    "main": "lib/Canteen-1.0.0.min.js",
+    "dependencies": {
+        "jquery": "~1",
+        "history.js": ">=1.8.0",
+        "touchclick": ">=1.1.4",
+        "jquery-form": ">=3.45"
+    },
+    "ignore": [
+        ".gitignore",
+        "build.xml",
+        "build.properties",
+        "docs.json",
+        "README.md",
+        "LICENSE",
+        "src",
+        "src.order"
+    ]
 }
