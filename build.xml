@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="CanteenClient" default="buildAll" basedir="./">
+<project name="CanteenClient" default="build" basedir="./">
 	<property file="${os.name}.build.properties"/>
 	<property file="build.properties"/>
 	
@@ -54,26 +54,14 @@
 	        </exec>
 		</sequential>
 	</macrodef>
-
-	<target name="buildDebug" description="Compile JS project in debug mode">
+	
+	<target name="build" description="Compile the Minified, Debug and Uncompressed versions of the library">
 		<build-js output="${output.debug}" debug="true" options="-b" />
-	</target>
-	
-	<target name="buildRelease" description="Compile JS project in release mode">
 		<build-js output="${output.min}" />
-	</target>
-	
-	<target name="buildUncompressed" description="Compile JS project with the docs">
 		<concat-source output="${output.docs}" dir="${source.dir}" order="${source.order}" />
 		<replaceregexp file="${output.docs}" match="\( ?RELEASE ?\)" replace="(false)" flags="g" />
 		<replaceregexp file="${output.docs}" match="\( ?DEBUG ?\)" replace="(true)" flags="g" />
 		<replaceregexp file="${output.docs}" match="\$\{version\}" replace="${version}" flags="g" />
-	</target>
-	
-	<target name="buildAll" description="Compile the Minified, Debug and Uncompressed versions of the library">
-		<antcall target="buildDebug" />
-		<antcall target="buildRelease" />
-		<antcall target="buildUncompressed" />
 	</target>
 	
 	<macrodef name="concat-source">

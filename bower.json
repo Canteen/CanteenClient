@@ -1,12 +1,12 @@
 {
-    "name": "Canteen",
+    "name": "canteen",
     "version": "1.0.0",
-    "main": "lib/Canteen-1.0.0.min.js",
+    "main": "lib/canteen.min.js",
     "dependencies": {
         "jquery": "~1",
-        "history.js": ">=1.8.0",
-        "touchclick": ">=1.1.4",
-        "jquery-form": ">=3.45"
+        "history.js": "~1.8",
+        "touchclick": "~1.1",
+        "jquery-form": "~3.45"
     },
     "ignore": [
         ".gitignore",
