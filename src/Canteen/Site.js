@@ -1,7 +1,7 @@
 /**
 * @module Canteen 
 */
-(function(global, undefined){
+(function(global, $, undefined){
 	
 	"use strict";
 	
@@ -17,10 +17,7 @@
 	*  of how to initialize on your site:
 	
 	$(function(){
-		var site = new Canteen.Site({
-			contentId : "#content",
-			pageTitleId : "#pageTitle"
-		});
+		var site = Canteen.Site.instance;
 		site.on('ready', function(){
 			// Site is ready!
 		});
@@ -28,22 +25,23 @@
 
 	*  @class Canteen.Site
 	*  @extends Canteen.EventDispatcher
-	*  @constructor
-	*  @param {Dictionary} [options] The customization options
-	*  @param {String} [options.contentId] The jQuery selector for target of the page content 
-	*  @param {String} [options.pageTitleId] The jquery selector for the target of the page title 
-	*  @param {String} [options.pageLoadingId] The jQuery selector to add loading class for page loading 
-	*  @param {String} [options.siteLoadingId] The jQuery selector to add loading class for site 
-	*  @param {String} [options.loadingClass] The name of the class to show page or site loading 
 	*/
-	var Site = function(options)
+	var Site = function()
 	{
-		this.initialize(options);
+		this.initialize();
 	},
 	
 	// Reference to the prototype
 	p = Site.prototype = new EventDispatcher(),
 	
+	/**
+	*  The singleton instance of the site
+	*  @property {Site} _instance
+	*  @private
+	*  @staticde
+	*/
+	_instance = null,
+
 	/** 
 	*  The last uri page request made, helps clear up traffic jams 
 	*  @property {String} _lastRequest
@@ -86,35 +84,35 @@
 		/** 
 		*  The jQuery selector for target of the page content 
 		*  @property {String} options.contentId
-		*  @default #content
+		*  @default "#content"
 		*/
 		contentId : "#content",
 
 		/** 
 		*  The jquery selector for the target of the page title 
 		*  @property {String} options.pageTitleId
-		*  @default h1
+		*  @default "h1"
 		*/
 		pageTitleId : "h1",
 
 		/** 
 		*  The jQuery selector to add loading class for page loading 
 		*  @property {String} options.pageLoadingId
-		*  @default article
+		*  @default "article"
 		*/
 		pageLoadingId : "article",
 
 		/** 
 		*  The jQuery selector to add loading class for site  
 		*  @property {String} options.siteLoadingId
-		*  @default body
+		*  @default "body"
 		*/
 		siteLoadingId : "body",
 
 		/** 
 		*  The name of the class to show page or site loading 
 		*  @property {String} options.loadingClass
-		*  @default loading
+		*  @default "loading"
 		*/
 		loadingClass : 'loading'
 	};
@@ -136,7 +134,7 @@
 	*  @property {Dictionary} options
 	*/
 	p.options = {};
-	
+
 	/**
 	*  A Canteen Page has entered
 	*  @event enter
@@ -179,9 +177,16 @@
 	/**
 	*  Constructor for the site
 	*/
-	p.initialize = function(options)
+	p.initialize = function()
 	{
-		var opts = $.extend(this.options, _defaultOptions, options);
+		if (_instance)
+		{
+			throw "Site has already been created. Use Canteen.Site.instance";
+		}
+
+		_instance = this;
+
+		var opts = this.options = _defaultOptions;
 		
 		// Disable the client
 		if (Canteen.settings.clientEnabled !== undefined && !Canteen.settings.clientEnabled) return;
@@ -277,6 +282,19 @@
 	};
 	
 	/**
+	*  Get the singleton instance of the site
+	*  @property {Site} instance
+	*  @static
+	*  @readOnly
+	*/
+	Object.defineProperty(Site, "instance", {
+		get: function()
+		{
+			return _instance;
+		}
+	});
+
+	/**
 	*  The current state URI
 	*  @property {String} currentState
 	*  @readOnly
@@ -287,7 +305,7 @@
 			return _currentState;
 		}
 	});
-	
+
 	/**
 	*  Get the current page object 
 	*  @property {Canteen.Page} currentPage
@@ -559,8 +577,11 @@
 			site._enterPage();
 		});
 	};
-	
+
 	// Assign to the global space
 	namespace('Canteen').Site = Site;
+
+	// Initialize the sitle singleton
+	$(function(){ new Site(); });
 	
-}(window));
+}(window, jQuery));
