@@ -19,6 +19,13 @@
 	*  @property {Canteen.Site} site
 	*/
 	p.site = null;
+
+	/** 
+	*  If the page is currently active
+	*  @property {Canteen.Site} active
+	*  @readOnly
+	*/
+	p.active = false;
 	
 	/** 
 	*  The current page stub 

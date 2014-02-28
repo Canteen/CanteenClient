@@ -401,7 +401,7 @@
 	*/
 	p.resize = function()
 	{
-		if (_currentPage)
+		if (_currentPage && _currentPage.active)
 		{
 			_currentPage.resize();
 		}
@@ -441,8 +441,9 @@
 		{
 			_currentPage = page.content;
 			_currentPage.uri = _currentState;
+			_currentPage.active = true;
 			_currentPage.enter();
-			_currentPage.resize();
+			this.resize();
 		}
 		this.trigger(Site.ENTER, _currentState);
 	};
@@ -508,6 +509,7 @@
 		else if (_currentPage)
 		{
 			_currentPage.exit();
+			_currentPage.active = false;
 			_currentPage = null;
 		}
 		
