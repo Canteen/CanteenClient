@@ -8,12 +8,10 @@ YUI.add("yuidoc-meta", function(Y) {
         "Canteen.Page",
         "Canteen.SavedData",
         "Canteen.Site",
-        "Debug",
         "Function.prototype.bind",
         "jQuery.internalLink",
         "jQuery.touch",
-        "jQuery.untouch",
-        "namespace"
+        "jQuery.untouch"
     ],
     "modules": [
         "Canteen",

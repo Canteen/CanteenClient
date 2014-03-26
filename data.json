@@ -2,7 +2,7 @@
     "project": {
         "name": "Canteen Client API",
         "description": "The front-end client JavaScript for a Canteen site.",
-        "version": "1.0.0",
+        "version": "1.1.2",
         "logo": ""
     },
     "files": {
@@ -92,31 +92,13 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Debug.js": {
-            "name": "src/Debug.js",
+        "src/bind.js": {
+            "name": "src/bind.js",
             "modules": {
                 "global": 1
             },
             "classes": {
-                "Debug": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
-        "src/bind.js": {
-            "name": "src/bind.js",
-            "modules": {},
-            "classes": {
                 "Function.prototype.bind": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
-        "src/namespace.js": {
-            "name": "src/namespace.js",
-            "modules": {},
-            "classes": {
-                "namespace": 1
             },
             "fors": {},
             "namespaces": {}
@@ -159,15 +141,13 @@
             "name": "global",
             "submodules": {},
             "classes": {
-                "Debug": 1,
-                "Function.prototype.bind": 1,
-                "namespace": 1
+                "Function.prototype.bind": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/namespace.js",
-            "line": 8
+            "file": "src/bind.js",
+            "line": 11
         }
     },
     "classes": {
@@ -344,63 +324,8 @@
             "namespace": "",
             "file": "src/Canteen/Site.js",
             "line": 15,
-            "description": "The Canteen Site is the client wrapper for the server API. Here's an example\nof how to initialize on your site:\n\t\n\t$(function(){\n\t\tvar site = new Canteen.Site({\n\t\t\tcontentId : \"#content\",\n\t\t\tpageTitleId : \"#pageTitle\"\n\t\t});\n\t\tsite.on('ready', function(){\n\t\t\t// Site is ready!\n\t\t});\n\t});",
-            "extends": "Canteen.EventDispatcher",
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "options",
-                    "description": "The customization options",
-                    "type": "Dictionary",
-                    "optional": true,
-                    "props": [
-                        {
-                            "name": "contentId",
-                            "description": "The jQuery selector for target of the page content",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "pageTitleId",
-                            "description": "The jquery selector for the target of the page title",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "pageLoadingId",
-                            "description": "The jQuery selector to add loading class for page loading",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "siteLoadingId",
-                            "description": "The jQuery selector to add loading class for site",
-                            "type": "String",
-                            "optional": true
-                        },
-                        {
-                            "name": "loadingClass",
-                            "description": "The name of the class to show page or site loading",
-                            "type": "String",
-                            "optional": true
-                        }
-                    ]
-                }
-            ]
-        },
-        "Debug": {
-            "name": "Debug",
-            "shortname": "Debug",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "global",
-            "namespace": "",
-            "file": "src/Debug.js",
-            "line": 8,
-            "description": "A static closure to provide easy access to the console\nwithout having errors if the console doesn't exist\nto use call:\n\n\tDebug.log('Your log here')"
+            "description": "The Canteen Site is the client wrapper for the server API. Here's an example\nof how to initialize on your site:\n\t\n\t$(function(){\n\t\tvar site = Canteen.Site.instance;\n\t\tsite.on('ready', function(){\n\t\t\t// Site is ready!\n\t\t});\n\t});",
+            "extends": "Canteen.EventDispatcher"
         },
         "Function.prototype.bind": {
             "name": "Function.prototype.bind",
@@ -432,32 +357,6 @@
             "return": {
                 "description": "The new function binding.",
                 "type": "Function"
-            }
-        },
-        "namespace": {
-            "name": "namespace",
-            "shortname": "namespace",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "global",
-            "namespace": "",
-            "file": "src/namespace.js",
-            "line": 8,
-            "description": "Create the namespace and assing to the window.\n \n\tnamespace('cloudkid.utils').SpriteUtils = function(){};",
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "namespaceString",
-                    "description": "Name space, for instance 'cloudkid.utils'",
-                    "type": "String"
-                }
-            ],
-            "return": {
-                "description": "Return the namespace",
-                "type": "Object"
             }
         }
     },
@@ -807,7 +706,7 @@
         },
         {
             "file": "src/Canteen/Forms.js",
-            "line": 295,
+            "line": 300,
             "description": "Show the form feedback",
             "itemtype": "method",
             "name": "formFeedback",
@@ -917,6 +816,17 @@
         {
             "file": "src/Canteen/Page.js",
             "line": 23,
+            "description": "If the page is currently active",
+            "itemtype": "property",
+            "name": "active",
+            "type": "Canteen.Site",
+            "readonly": "",
+            "class": "Canteen.Page",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Page.js",
+            "line": 30,
             "description": "The current page stub",
             "itemtype": "property",
             "name": "uri",
@@ -926,7 +836,7 @@
         },
         {
             "file": "src/Canteen/Page.js",
-            "line": 29,
+            "line": 36,
             "description": "Called by the site. This enters the page.\nAny initialization should happen here",
             "itemtype": "method",
             "name": "enter",
@@ -935,7 +845,7 @@
         },
         {
             "file": "src/Canteen/Page.js",
-            "line": 39,
+            "line": 46,
             "description": "Called by the site, exits this page\nany memory cleanup/unbind should happen here",
             "itemtype": "method",
             "name": "exit",
@@ -944,7 +854,7 @@
         },
         {
             "file": "src/Canteen/Page.js",
-            "line": 49,
+            "line": 56,
             "description": "Called when the location has been updated, but not the page\nfor instance, if a dynamic page changes.",
             "itemtype": "method",
             "name": "refresh",
@@ -957,7 +867,7 @@
         },
         {
             "file": "src/Canteen/Page.js",
-            "line": 61,
+            "line": 68,
             "description": "Resize function called by the site",
             "itemtype": "method",
             "name": "resize",
@@ -966,7 +876,20 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 47,
+            "line": 37,
+            "description": "The singleton instance of the site",
+            "itemtype": "property",
+            "name": "_instance",
+            "type": "Site",
+            "access": "private",
+            "tagname": "",
+            "staticde": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 45,
             "description": "The last uri page request made, helps clear up traffic jams",
             "itemtype": "property",
             "name": "_lastRequest",
@@ -978,7 +901,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 54,
+            "line": 52,
             "description": "The current state count",
             "itemtype": "property",
             "name": "_currentId",
@@ -990,7 +913,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 61,
+            "line": 59,
             "description": "The string of the current state",
             "itemtype": "property",
             "name": "_currentState",
@@ -1002,7 +925,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 68,
+            "line": 66,
             "description": "An array of the pages",
             "itemtype": "property",
             "name": "_pages",
@@ -1014,7 +937,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 75,
+            "line": 73,
             "description": "If there's a page for the current state",
             "itemtype": "property",
             "name": "_currentPage",
@@ -1026,69 +949,69 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 82,
+            "line": 80,
             "description": "The current default options",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 86,
+            "line": 84,
             "description": "The jQuery selector for target of the page content",
             "itemtype": "property",
             "name": "options.contentId",
             "type": "String",
-            "default": "#content",
+            "default": "\"#content\"",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 93,
+            "line": 91,
             "description": "The jquery selector for the target of the page title",
             "itemtype": "property",
             "name": "options.pageTitleId",
             "type": "String",
-            "default": "h1",
+            "default": "\"h1\"",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 100,
+            "line": 98,
             "description": "The jQuery selector to add loading class for page loading",
             "itemtype": "property",
             "name": "options.pageLoadingId",
             "type": "String",
-            "default": "article",
+            "default": "\"article\"",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 107,
+            "line": 105,
             "description": "The jQuery selector to add loading class for site",
             "itemtype": "property",
             "name": "options.siteLoadingId",
             "type": "String",
-            "default": "body",
+            "default": "\"body\"",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 114,
+            "line": 112,
             "description": "The name of the class to show page or site loading",
             "itemtype": "property",
             "name": "options.loadingClass",
             "type": "String",
-            "default": "loading",
+            "default": "\"loading\"",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 122,
+            "line": 120,
             "description": "The instancee of the gateway",
             "itemtype": "property",
             "name": "gateway",
@@ -1098,7 +1021,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 128,
+            "line": 126,
             "description": "The collection of query string parameters",
             "itemtype": "property",
             "name": "parameters",
@@ -1108,7 +1031,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 134,
+            "line": 132,
             "description": "The current setup options",
             "itemtype": "property",
             "name": "options",
@@ -1118,7 +1041,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 140,
+            "line": 138,
             "description": "A Canteen Page has entered",
             "itemtype": "event",
             "name": "enter",
@@ -1134,7 +1057,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 147,
+            "line": 145,
             "description": "A Canteen Page has exited completed",
             "itemtype": "event",
             "name": "exit",
@@ -1150,7 +1073,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 154,
+            "line": 152,
             "description": "The entire site is ready",
             "itemtype": "event",
             "name": "ready",
@@ -1159,7 +1082,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 160,
+            "line": 158,
             "description": "The page is starting load",
             "itemtype": "event",
             "name": "loading",
@@ -1168,7 +1091,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 166,
+            "line": 164,
             "description": "The page loading is done",
             "itemtype": "event",
             "name": "loadingDone",
@@ -1177,7 +1100,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 172,
+            "line": 170,
             "description": "The current site version",
             "itemtype": "property",
             "name": "VERSION",
@@ -1188,14 +1111,14 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 179,
+            "line": 177,
             "description": "Constructor for the site",
             "class": "Canteen.Site",
             "module": "Canteen"
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 211,
+            "line": 216,
             "description": "Enable the history",
             "itemtype": "method",
             "name": "_enableHistory",
@@ -1213,7 +1136,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 224,
+            "line": 229,
             "description": "Redirect the page to a URI (about/overview)",
             "itemtype": "method",
             "name": "redirect",
@@ -1236,6 +1159,13 @@
                     "type": "Boolean",
                     "optional": true,
                     "optdefault": "false"
+                },
+                {
+                    "name": "asyncRefresh",
+                    "description": "If the refresh should be asyncronous",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
                 }
             ],
             "class": "Canteen.Site",
@@ -1243,7 +1173,19 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 271,
+            "line": 284,
+            "description": "Get the singleton instance of the site",
+            "itemtype": "property",
+            "name": "instance",
+            "type": "Site",
+            "static": 1,
+            "readonly": "",
+            "class": "Canteen.Site",
+            "module": "Canteen"
+        },
+        {
+            "file": "src/Canteen/Site.js",
+            "line": 297,
             "description": "The current state URI",
             "itemtype": "property",
             "name": "currentState",
@@ -1254,7 +1196,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 283,
+            "line": 309,
             "description": "Get the current page object",
             "itemtype": "property",
             "name": "currentPage",
@@ -1265,7 +1207,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 295,
+            "line": 321,
             "description": "Do a refresh of the page content",
             "itemtype": "method",
             "name": "refresh",
@@ -1289,7 +1231,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 310,
+            "line": 336,
             "description": "Fix the page links, form element and anything that requires jQuery",
             "itemtype": "method",
             "name": "_fixInternalLinks",
@@ -1300,7 +1242,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 321,
+            "line": 347,
             "description": "Handler for the history state change",
             "itemtype": "method",
             "name": "_onStateChanged",
@@ -1311,7 +1253,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 343,
+            "line": 369,
             "description": "Callback when a gateway is finished setting up",
             "itemtype": "method",
             "name": "_gatewayReady",
@@ -1329,7 +1271,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 372,
+            "line": 398,
             "description": "Called whenever the window resizes, pass along to page",
             "itemtype": "method",
             "name": "resize",
@@ -1338,7 +1280,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 384,
+            "line": 410,
             "description": "Bind a uri to a page class",
             "itemtype": "method",
             "name": "addPage",
@@ -1359,7 +1301,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 406,
+            "line": 432,
             "description": "Get the page for the current state",
             "itemtype": "method",
             "name": "_enterPage",
@@ -1370,7 +1312,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 424,
+            "line": 451,
             "description": "Get a specific page by a uri",
             "itemtype": "method",
             "name": "getPageByUri",
@@ -1390,7 +1332,7 @@
         },
         {
             "file": "src/Canteen/Site.js",
-            "line": 453,
+            "line": 480,
             "description": "Update the page content",
             "itemtype": "method",
             "name": "_updatePageContent",
@@ -1411,330 +1353,20 @@
             ],
             "class": "Canteen.Site",
             "module": "Canteen"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 19,
-            "description": "If we have a console",
-            "access": "private",
-            "tagname": "",
-            "static": 1,
-            "itemtype": "property",
-            "name": "_hasConsole",
-            "type": "Boolean",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 27,
-            "description": "The most general, default log level",
-            "itemtype": "property",
-            "name": "GENERAL",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "0",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 36,
-            "description": "The log level for debug statements",
-            "itemtype": "property",
-            "name": "DEBUG",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "1",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 45,
-            "description": "The log level for info statements",
-            "itemtype": "property",
-            "name": "INFO",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "2",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 54,
-            "description": "The log level for warn statements",
-            "itemtype": "property",
-            "name": "WARN",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "3",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 63,
-            "description": "The log level for error statements",
-            "itemtype": "property",
-            "name": "ERROR",
-            "type": "Int",
-            "static": 1,
-            "final": 1,
-            "default": "4",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 72,
-            "description": "The minimum log level to show, by default it's set to\nshow all levels of logging.",
-            "static": 1,
-            "itemtype": "property",
-            "name": "minLogLevel",
-            "type": "Int",
-            "default": "Debug.GENERAL",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 81,
-            "description": "Boolean to turn on or off the debugging",
-            "static": 1,
-            "itemtype": "property",
-            "name": "enabled",
-            "type": "Boolean",
-            "default": "true",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 89,
-            "description": "The output jQuery element",
-            "static": 1,
-            "itemtype": "property",
-            "name": "output",
-            "type": "JQuery",
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 96,
-            "description": "Sent to the output on the page",
-            "access": "private",
-            "tagname": "",
-            "static": 1,
-            "itemtype": "method",
-            "name": "output",
-            "params": [
-                {
-                    "name": "level",
-                    "description": "The output level name",
-                    "type": "String"
-                },
-                {
-                    "name": "args",
-                    "description": "The arguments to output",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 112,
-            "description": "Log something in the console",
-            "itemtype": "method",
-            "name": "log",
-            "static": 1,
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to log",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 127,
-            "description": "Debug something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "debug",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to debug",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 142,
-            "description": "Info something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "info",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to info",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 157,
-            "description": "Warn something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "warn",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to warn",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 172,
-            "description": "Error something in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "error",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The statement or objects to error",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 187,
-            "description": "Prepare the fatal error and show the stack trace",
-            "static": 1,
-            "itemtype": "method",
-            "name": "fatalError",
-            "params": [
-                {
-                    "name": "error",
-                    "description": "The fatal error from the server",
-                    "type": "Object"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 206,
-            "description": "Assert that something is true",
-            "static": 1,
-            "itemtype": "method",
-            "name": "assert",
-            "params": [
-                {
-                    "name": "truth",
-                    "description": "As statement that is assumed true",
-                    "type": "Boolean"
-                },
-                {
-                    "name": "params",
-                    "description": "The addition parameters",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 226,
-            "description": "Method to describe an object in the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "dir",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "The object to describe",
-                    "type": "Mixed"
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 240,
-            "description": "Method to clear the console",
-            "static": 1,
-            "itemtype": "method",
-            "name": "clear",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "Optional parameters",
-                    "type": "Mixed",
-                    "optional": true
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
-        },
-        {
-            "file": "src/Debug.js",
-            "line": 255,
-            "description": "Generate a stack track in the output",
-            "static": 1,
-            "itemtype": "method",
-            "name": "trace",
-            "params": [
-                {
-                    "name": "params",
-                    "description": "Optional parameters",
-                    "type": "Mixed",
-                    "optional": true
-                }
-            ],
-            "class": "Debug",
-            "module": "global"
         }
     ],
     "warnings": [
         {
+            "message": "unknown tag: staticde",
+            "line": " src/Canteen/Site.js:37"
+        },
+        {
             "message": "Missing item type\nThe current default options",
-            "line": " src/Canteen/Site.js:82"
+            "line": " src/Canteen/Site.js:80"
         },
         {
             "message": "Missing item type\nConstructor for the site",
-            "line": " src/Canteen/Site.js:179"
+            "line": " src/Canteen/Site.js:177"
         }
     ]
 }
