@@ -1,6 +1,6 @@
 {
     "name": "canteen",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "main": "lib/canteen.min.js",
     "dependencies": {
         "cloudkid-debug": "*",

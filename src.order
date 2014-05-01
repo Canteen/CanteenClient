@@ -1,4 +1,5 @@
 bind.js
+Canteen/Debug.js
 Canteen/EventDispatcher.js
 Canteen/Plugins/Touch.js
 Canteen/Plugins/InternalLink.js
