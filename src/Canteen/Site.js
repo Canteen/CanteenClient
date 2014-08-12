@@ -116,7 +116,21 @@
 		*/
 		loadingClass : 'loading'
 	};
-	
+
+	/**
+	*  The current state URI
+	*  @property {String} currentState
+	*  @readOnly
+	*/
+	p.currentState = null;
+
+	/**
+	*  Get the current page object 
+	*  @property {Canteen.Page} currentPage
+	*  @readOnly
+	*/
+	p.currentPage = null;
+
 	/**
 	*  The instancee of the gateway 
 	*  @property {Gateway} gateway
@@ -173,6 +187,14 @@
 	*  @readOnly 
 	*/
 	Site.VERSION = "${version}";
+
+	/**
+	*  Get the singleton instance of the site
+	*  @property {Site} instance
+	*  @static
+	*  @readOnly
+	*/
+	Site.instance = null;
 	
 	/**
 	*  Constructor for the site
@@ -184,7 +206,7 @@
 			throw "Site has already been created. Use Canteen.Site.instance";
 		}
 
-		_instance = this;
+		Site.instance = _instance = this;
 
 		var opts = this.options = _defaultOptions;
 		
@@ -202,7 +224,7 @@
 		
 		// Setup history
 		_currentId = 1;
-		_currentState = Canteen.settings.uriRequest;
+		this.currentState = _currentState = Canteen.settings.uriRequest;
 		this._enableHistory(true);
 		this._fixInternalLinks();
 		
@@ -280,43 +302,6 @@
 			History.pushState({state:_currentId}, siteTitle, state);
 		}
 	};
-	
-	/**
-	*  Get the singleton instance of the site
-	*  @property {Site} instance
-	*  @static
-	*  @readOnly
-	*/
-	Object.defineProperty(Site, "instance", {
-		get: function()
-		{
-			return _instance;
-		}
-	});
-
-	/**
-	*  The current state URI
-	*  @property {String} currentState
-	*  @readOnly
-	*/
-	Object.defineProperty(p, "currentState", {
-		get: function()
-		{
-			return _currentState;
-		}
-	});
-
-	/**
-	*  Get the current page object 
-	*  @property {Canteen.Page} currentPage
-	*  @readOnly
-	*/
-	Object.defineProperty(p, "currentPage", {
-		get: function()
-		{
-			return _currentPage;
-		}
-	});
 	
 	/**
 	*  Do a refresh of the page content
@@ -439,7 +424,7 @@
 		var page = this.getPageByUri(_currentState);
 		if (page)
 		{
-			_currentPage = page.content;
+			this.currentPage = _currentPage = page.content;
 			_currentPage.uri = _currentState;
 			_currentPage.active = true;
 			_currentPage.enter();
@@ -495,7 +480,7 @@
 		this.trigger(Site.EXIT, _currentState);
 		
 		// Update the current uri
-		_currentState = uri;
+		this.currentState = _currentState = uri;
 		
 		// Special-case if we're already on the current page
 		// but only the content needs to update
@@ -510,7 +495,7 @@
 		{
 			_currentPage.exit();
 			_currentPage.active = false;
-			_currentPage = null;
+			this.currentPage = _currentPage = null;
 		}
 		
 		// Form cleanup
