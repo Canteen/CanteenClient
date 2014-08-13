@@ -62,6 +62,13 @@
 	*  @private
 	*/
 	_currentState = null,
+
+	/**
+	*  If we should enable the HTML5 history
+	*  @property {Boolean} _historyEnabled
+	*  @private
+	*/
+	_historyEnabled = true,
 	
 	/** 
 	*  An array of the pages 
@@ -225,8 +232,12 @@
 		// Setup history
 		_currentId = 1;
 		this.currentState = _currentState = Canteen.settings.uriRequest;
-		this._enableHistory(true);
-		this._fixInternalLinks();
+		this._enableHistory(!!(global.history && history.pushState));
+		
+		if (_historyEnabled)
+		{
+			this._fixInternalLinks();
+		}
 		
 		// Initialize the gateway
 		this.gateway = new Gateway(
@@ -243,6 +254,7 @@
 	*/
 	p._enableHistory = function(enable)
 	{
+		_historyEnabled = enable;
 		$(global).off('statechange');
 		if (enable)
 			$(global).on('statechange', this._onStateChange.bind(this));
@@ -291,15 +303,22 @@
 			return;
 		}
 		
-		// Change the history state
-		if (replaceInHistory)
+		if (_historyEnabled)
 		{
-			History.replaceState({state:_currentId}, siteTitle, state);
+			// Change the history state
+			if (replaceInHistory)
+			{
+				History.replaceState({state:_currentId}, siteTitle, state);
+			}
+			else
+			{
+				_currentId++;
+				History.pushState({state:_currentId}, siteTitle, state);
+			}
 		}
 		else
 		{
-			_currentId++;
-			History.pushState({state:_currentId}, siteTitle, state);
+			document.location.href = state;
 		}
 	};
 	
@@ -312,7 +331,7 @@
 	p.refresh = function(async, params)
 	{
 		async = async === undefined ? true : async;
-		if (async)
+		if (async && _historyEnabled)
 			this._updatePageContent(_currentState, params);
 		else
 			document.location.reload(true);
