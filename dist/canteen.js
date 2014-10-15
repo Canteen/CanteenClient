@@ -1,66 +1,4 @@
-/**
-*  @module global 
-*/
-(function(){
-	
-	"use strict";
-	
-	// If there's already a bind, ignore
-	if (Function.prototype.bind) return;
-	
-	/**
-	*  Designed to provide utility related to functions, the
-	*  most important of which is the Bind function, used to properly scope callbacks.
-	*  Add the bind functionality to the Function prototype
-	*  this allows passing a reference in the function callback
-	*  
-	*	callback.bind(this)
-	*	callback.bind(this, arg1)
-	*  
-	*  @class Function.prototype.bind
-	*  @constructor
-	*  @param {Object} that The reference to the function.
-	*  @param {mixed} [args*] Additional arguments
-	*  @return {Function} The new function binding.
-	*/
-	Function.prototype.bind = function(that) 
-	{
-		var target = this, 
-			args,
-			bound;
-
-		if (typeof target != "function") 
-		{
-			throw new TypeError();
-		}
-
-		args = Array.prototype.slice.call(arguments, 1);
-		bound = function()
-		{
-			if (this instanceof bound) 
-			{
-				var F, self, result;
-				F = function(){};
-				F.prototype = target.prototype;
-				self = new F();
-
-				result = target.apply(self, args.concat(Array.prototype.slice.call(arguments)));
-				
-				if (Object(result) === result)
-				{
-					return result;
-				}
-				return self;
-			}
-			else 
-			{
-				return target.apply(that, args.concat(Array.prototype.slice.call(arguments)));
-			}
-		};
-		return bound;
-	};
-	
-}());
+/*! CanteenClient 1.2.0 */
 (function(){
 
 	/**
@@ -317,7 +255,7 @@
 	*  @constructor
 	*  @param {Canteen.Site} site The reference to the site
 	*/
-	$.fn.internalLink = function(site)
+	$.fn.internalLink = function(site, undefined)
 	{
 		var basePath = Canteen.settings.basePath,
 			index = Canteen.settings.siteIndex,
@@ -335,69 +273,64 @@
 		
 		return this.each(function(){
 			var link = $(this),
-				refresh = link.data('refresh'),
+				reload = link.data('reload'),
+				selectedClass = link.data('selected') || 'selected',
 				href = link.attr('href'),
-				uri;
-		
-			// If refresh is set
-			if (typeof refresh !== 'undefined')
-			{
-				link.untouch()
-					.touch(function(e){
-						
-						// Check for confirmation
-						if (!checkConfirm(link)) return;
-						
-						// If we should do a soft or hard refresh
-						if (refresh == "soft")
-						{
-							e.preventDefault();
-							site.refresh();
-							return;
-						}
-						
-						// hard redirect
-						if (href)
-						{
-							document.location.href = href;
-						}
-						// hard site refresh
-						else
-						{
-							site.refresh(false);
-						}
-					});
-				return;
-			}
-		
+				uri = href.substr(basePath.length);
+			
 			// Make sure the link is valid and the path isn't
 			// already set to the base path
-			if (!href || href.indexOf(basePath) !== 0) return;
+			if (!href || href.indexOf(basePath) !== 0)
+			{
+				if (true)
+				{
+					Debug.info("No href or link doesn't start with basePath ('" +
+						basePath + "') '" + href + "'");
+				}
+				return;
+			}
 
-			// Get the raw uri, without the base path
-			uri = href.substr(basePath.length);
-		
-			// Setup the internal click
-			link.untouch()
+			// Let's ignore anything that starts with a protocol ("http:")
+			// these aren't properly formatted to be used with internal linking
+			if (/^([a-z]{3,}\:)/i.test(href))
+			{
+				if (true)
+				{
+					Debug.info("Internal links cannot start with a protocol '" + href + "'");
+				}
+				return;
+			}
+
+			link.removeClass(selectedClass)
+				.untouch()
 				.touch(function(e){
-					
-					// Prevent the default behavior
-					e.preventDefault();
-					
+						
 					// Check for confirmation
 					if (!checkConfirm(link)) return;
 					
-					// Redirect to the page uri
-					site.redirect(uri);
-				})
-				.removeClass('selected');
-
-			// The link is either the current or the base of the request
-			// or the index page
+					// hard site refresh
+					if (reload)
+					{
+						document.location.href = href;
+					}
+					// soft site redirect or refresh
+					else
+					{
+						e.preventDefault();
+						site.redirect(uri, false, true); // allow refresh
+					}
+				});
+			
+			// Pattern 
 			var parent = new RegExp("^"+uri.replace("/", "\/")+"(\/.*)?$");
 
-			if (uri == state || (state !== '' && parent.test(state)) || (uri == index && state === ''))
-				link.addClass('selected');
+			// Check the conditions to see if we should select the current page
+			if (uri === state || // current page
+				(state !== '' && parent.test(state)) || // child page
+				(uri == index && state === '')) // home page
+			{
+				link.addClass(selectedClass);
+			}	
 		});
 	};
 /**
@@ -1271,10 +1204,10 @@
 	
 	/**
 	*  The current site version
-	*  @property {String} VERSION
+	*  @property {String} version
 	*  @readOnly 
 	*/
-	Site.VERSION = "1.1.6";
+	Site.version = "1.2.0";
 
 	/**
 	*  Get the singleton instance of the site
@@ -1425,7 +1358,7 @@
 	*/
 	p._fixInternalLinks = function()
 	{
-		$('a').internalLink(this);
+		$('a[data-internal]').internalLink(this);
 		Forms.setup(this, (this.parameters.debugForms === "true"));
 	};
 	

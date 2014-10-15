@@ -190,10 +190,10 @@
 	
 	/**
 	*  The current site version
-	*  @property {String} VERSION
+	*  @property {String} version
 	*  @readOnly 
 	*/
-	Site.VERSION = "${version}";
+	Site.version = VERSION;
 
 	/**
 	*  Get the singleton instance of the site
@@ -344,7 +344,7 @@
 	*/
 	p._fixInternalLinks = function()
 	{
-		$('a').internalLink(this);
+		$('a[data-internal]').internalLink(this);
 		Forms.setup(this, (this.parameters.debugForms === "true"));
 	};
 	

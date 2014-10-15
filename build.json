@@ -1,0 +1,19 @@
+{
+	"name": "CanteenClient",
+	"version": "1.2.0",
+	"description": "Front-end client for the Canteen Framework",
+	"url": "https://github.com/Canteen/CanteenClient",
+	"output": "canteen",
+	"main": [
+		"src/Debug.js",
+		"src/EventDispatcher.js",
+		"src/plugins/Touch.js",
+		"src/plugins/InternalLink.js",
+		"src/utils/SavedData.js",
+		"src/utils/LocationUtils.js",
+		"src/Forms.js",
+		"src/Gateway.js",
+		"src/Page.js",
+		"src/Site.js"
+	]
+}

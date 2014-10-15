@@ -1,24 +1,23 @@
 {
-    "name": "canteen",
-    "version": "1.1.6",
-    "main": "lib/canteen.min.js",
-    "dependencies": {
-        "cloudkid-debug": "*",
-        "cloudkid-namespace": "*",
-        "jquery": "~1",
-        "history.js": "*",
-        "touchclick": "*",
-        "jquery-form": "~3"
-    },
-    "ignore": [
-        ".gitignore",
-        ".gitattributes",
-        "build.xml",
-        "build.properties",
-        "docs.json",
-        "README.md",
-        "LICENSE",
-        "src",
-        "src.order"
-    ]
+	"name": "canteen",
+	"version": "1.2.0",
+	"main": "dist/canteen.min.js",
+	"dependencies": {
+		"cloudkid-debug": "*",
+		"cloudkid-namespace": "*",
+		"jquery": "~1",
+		"history.js": "*",
+		"touchclick": "*",
+		"jquery-form": "~3",
+		"bind-polyfill": "*"
+	},
+	"ignore": [
+		".gitignore",
+		".gitattributes",
+		"Gruntfile.js",
+		"build.json",
+		"README.md",
+		"src",
+		"package.json"
+	]
 }

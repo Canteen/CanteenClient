@@ -8,10 +8,7 @@ For documentation of the codebase, please see [Canteen Client docs](http://cante
 
 ```js
 $(function(){
-	var site = new Canteen.Site({
-		contentId : "#content",
-		pageTitleId : "#pageTitle"
-	});
+	var site = Canteen.Site.instance;
 	site.on('ready', function(){
 		// Site is ready!
 	});
@@ -24,24 +21,8 @@ $(function(){
 + History.js
 + CanteenFramework
 
-###Rebuild Documentation
-
-This library is auto-documented using [YUIDoc](http://yui.github.io/yuidoc/). To install YUIDoc, run `sudo npm install yuidocjs`. Also, this requires the project [CanteenTheme](http://github.com/Canteen/CanteenTheme) be checked-out along-side this repository. To rebuild the docs, run the ant task from the command-line. 
-
-```bash
-ant docs
-```
-
-###Rebuild Documentation
-
-This library is auto-documented using [YUIDoc](http://yui.github.io/yuidoc/). To install YUIDoc, run `sudo npm install yuidocjs`. Also, this requires the project [CanteenTheme](http://github.com/Canteen/CanteenTheme) be checked-out along-side this repository. To rebuild the docs, run the ant task from the command-line. 
-
-```bash
-ant docs
-```
-
 ##License##
 
-Copyright (c) 2013 [Matt Karl](http://github.com/bigtimebuddy)
+Copyright (c) 2014 [Matt Karl](http://github.com/bigtimebuddy)
 
 Released under the MIT License.
