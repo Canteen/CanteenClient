@@ -35,7 +35,7 @@
 			// already set to the base path
 			if (!href || href.indexOf(basePath) !== 0)
 			{
-				if (true)
+				if (DEBUG)
 				{
 					Debug.info("No href or link doesn't start with basePath ('" +
 						basePath + "') '" + href + "'");
@@ -47,7 +47,7 @@
 			// these aren't properly formatted to be used with internal linking
 			if (/^([a-z]{3,}\:)/i.test(href))
 			{
-				if (true)
+				if (DEBUG)
 				{
 					Debug.info("Internal links cannot start with a protocol '" + href + "'");
 				}
