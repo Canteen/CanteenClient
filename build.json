@@ -8,7 +8,7 @@
 		"src/Debug.js",
 		"src/EventDispatcher.js",
 		"src/plugins/Touch.js",
-		"src/plugins/ConfirmLink.js",
+		"src/plugins/Confirmation.js",
 		"src/plugins/InternalLink.js",
 		"src/utils/SavedData.js",
 		"src/utils/LocationUtils.js",

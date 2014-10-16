@@ -44,7 +44,6 @@
 			}
 
 			link.removeClass(selectedClass)
-				.untouch()
 				.touch(function(e){					
 					e.preventDefault();
 					site.redirect(uri, false, true); // allow refresh
