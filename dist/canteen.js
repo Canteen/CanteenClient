@@ -250,6 +250,32 @@
 	*/
 	
 	/**
+	*  Add confirmation to link
+	*  @class jQuery.confirmLink
+	*  @constructor
+	*  @param {string} [message="Are you sure you wish to continue?"] The confirmation message
+	*/
+	$.fn.confirmLink = function(message)
+	{		
+		var defaultTitle = "Are you sure you wish to continue?";
+		return this.each(function(){
+			var link = $(this),
+				title = message || link.data('confirm') || defaultTitle;
+
+			link.untouch().touch(function(e){
+				if (!confirm(title))
+				{
+					e.preventDefault();
+					return false;
+				}
+			});
+		});
+	};
+	/**
+	* @module jQuery 
+	*/
+	
+	/**
 	*  Handle all of the internal site links
 	*  @class jQuery.internalLink
 	*  @constructor
@@ -259,21 +285,10 @@
 	{
 		var basePath = Canteen.settings.basePath,
 			index = Canteen.settings.siteIndex,
-			state = site.currentState,
-			checkConfirm = function(element)
-			{
-				if (element.hasClass('confirm'))
-				{
-					var title = element.data('confirm') || "Are you sure you wish to continue?",
-						result = confirm(title);
-					return result;
-				}
-				return true;
-			};
+			state = site.currentState;
 		
 		return this.each(function(){
 			var link = $(this),
-				reload = link.data('reload'),
 				selectedClass = link.data('selected') || 'selected',
 				href = link.attr('href'),
 				uri = href.substr(basePath.length);
@@ -303,22 +318,9 @@
 
 			link.removeClass(selectedClass)
 				.untouch()
-				.touch(function(e){
-						
-					// Check for confirmation
-					if (!checkConfirm(link)) return;
-					
-					// hard site refresh
-					if (reload)
-					{
-						document.location.href = href;
-					}
-					// soft site redirect or refresh
-					else
-					{
-						e.preventDefault();
-						site.redirect(uri, false, true); // allow refresh
-					}
+				.touch(function(e){					
+					e.preventDefault();
+					site.redirect(uri, false, true); // allow refresh
 				});
 			
 			// Pattern 
@@ -1358,6 +1360,7 @@
 	*/
 	p._fixInternalLinks = function()
 	{
+		$('button.confirm, a.confirm').confirmLink();
 		$('a[data-internal]').internalLink(this);
 		Forms.setup(this, (this.parameters.debugForms === "true"));
 	};

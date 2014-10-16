@@ -12,21 +12,10 @@
 	{
 		var basePath = Canteen.settings.basePath,
 			index = Canteen.settings.siteIndex,
-			state = site.currentState,
-			checkConfirm = function(element)
-			{
-				if (element.hasClass('confirm'))
-				{
-					var title = element.data('confirm') || "Are you sure you wish to continue?",
-						result = confirm(title);
-					return result;
-				}
-				return true;
-			};
+			state = site.currentState;
 		
 		return this.each(function(){
 			var link = $(this),
-				reload = link.data('reload'),
 				selectedClass = link.data('selected') || 'selected',
 				href = link.attr('href'),
 				uri = href.substr(basePath.length);
@@ -56,22 +45,9 @@
 
 			link.removeClass(selectedClass)
 				.untouch()
-				.touch(function(e){
-						
-					// Check for confirmation
-					if (!checkConfirm(link)) return;
-					
-					// hard site refresh
-					if (reload)
-					{
-						document.location.href = href;
-					}
-					// soft site redirect or refresh
-					else
-					{
-						e.preventDefault();
-						site.redirect(uri, false, true); // allow refresh
-					}
+				.touch(function(e){					
+					e.preventDefault();
+					site.redirect(uri, false, true); // allow refresh
 				});
 			
 			// Pattern 
