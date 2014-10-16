@@ -344,9 +344,9 @@
 	*/
 	p._fixInternalLinks = function()
 	{
-		$('a[data-internal], .confirm').untouch();
+		$('a.internal, .confirm').untouch();
 		$('.confirm').confirmation();
-		$('a[data-internal]').internalLink(this);
+		$('a.internal').internalLink(this);
 		Forms.setup(this, (this.parameters.debugForms === "true"));
 	};
 	
