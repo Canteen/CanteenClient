@@ -547,24 +547,6 @@
 	*/
 	Forms.CONFIRM = "confirm";
 	
-	/** 
-	*  Form feedback when errored 
-	*  @property {String} FEEDBACK_ERROR
-	*  @final
-	*  @static
-	*  @default formError
-	*/
-	Forms.FEEDBACK_ERROR = 'formError';
-	
-	/** 
-	*  Form feedback when successful 
-	*  @property {String} FEEDBACK_SUCCESS
-	*  @final
-	*  @static
-	*  @default formSuccess
-	*/
-	Forms.FEEDBACK_SUCCESS = 'formSuccess';
-	
 	/**
 	*  Clean up any form elements
 	*  @method destroy
@@ -734,7 +716,7 @@
 			
 			if (true) 
 			{
-				Debug.log(response.messages.join("\n"));
+				Debug.log(response.messages);
 			}
 			
 			if (!response.ifError && refresh.length && refresh.val() == 'true')
@@ -744,7 +726,7 @@
 			} 
 			
 			// Show the feedback
-			Forms.formFeedback(form, response.messages, response.ifError);
+			Forms.formFeedback(form, response.messages);
 		};
 		
 		var options = {
@@ -791,28 +773,18 @@
 	*  @method formFeedback
 	*  @static
 	*  @param {jQuery} form The form to display feedback form
-	*  @param {Array} message The message list of string feedback messages
-	*  @param {Boolean} error If the feedback is error
+	*  @param {String} message The message list of string feedback messages
 	*/
-	Forms.formFeedback = function(form, messages, error)
+	Forms.formFeedback = function(form, messages)
 	{
 		// Remove any existing feedback
-		$("ul."+Forms.FEEDBACK_ERROR+", ul."+Forms.FEEDBACK_SUCCESS).remove();
-		
-		var c = error ? Forms.FEEDBACK_ERROR : Forms.FEEDBACK_SUCCESS, 
-			ul = '<ul class="'+c+'">';
-			
-		for(var i = 0, len = messages.length; i < len; i++)
-		{
-			ul += '<li>' + messages[i] + '</li>';
-		}
-		ul += '</ul>';
+		$(".formFeedback").remove();
 		
 		var legend = form.find('legend');
 		
 		if (legend.length)
 		{
-			legend.after(ul);
+			legend.after(messages);
 		}
 		else
 		{
