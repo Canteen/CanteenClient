@@ -231,6 +231,10 @@
 	*/
 	$.fn.touch = function(handler)
 	{
+		if (!handler)
+		{
+			return this.trigger('touchclick');
+		}
 		return this.on('click', false).on('touchclick', handler);
 	};
 
@@ -593,7 +597,7 @@
 			{
 				e.stopImmediatePropagation();
 				e.preventDefault();
-				submit.trigger('touchclick');
+				submit.touch();
 			}
 		};
 		
@@ -642,21 +646,22 @@
 		{		
 			// Get all required items in the form
 			var required = form.find("."+Forms.REQUIRED)
-				.removeClass(Forms.ERROR);
+				.removeClass(Forms.ERROR)
+				.trigger(Forms.ERROR + '.hide');
 
 			// Add filter to required element without data
 			var errors = required.filter(function(){
 				return !this.value;
-			}).addClass(Forms.ERROR);
+			}).addClass(Forms.ERROR).trigger(Forms.ERROR + '.show');
 
 			// If there are errors
 			if (errors.length > 0)
 			{
-				var removeError = function(){
-					$(this).removeClass(Forms.ERROR).off('keydown');
-				};
-				errors.untouch().on('touchclick focus keydown', removeError);
-				
+				errors.untouch().on('touchclick focus keydown', function(){
+					$(this).removeClass(Forms.ERROR)
+						.off('keydown')
+						.trigger(Forms.ERROR + '.hide');
+				});
 				return false;
 			}
 			

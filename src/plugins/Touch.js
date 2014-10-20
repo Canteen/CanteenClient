@@ -17,6 +17,10 @@
 	*/
 	$.fn.touch = function(handler)
 	{
+		if (!handler)
+		{
+			return this.trigger('touchclick');
+		}
 		return this.on('click', false).on('touchclick', handler);
 	};
 
