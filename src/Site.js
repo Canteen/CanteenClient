@@ -268,9 +268,9 @@
 	*         in the history
 	*  @param {Boolean} [allowRefresh=false] If we should allow page refreshes
 	*         if the user redirects to the current page (default is false)
-	*  @param {Boolean} [asyncRefresh=true] If the refresh should be asyncronous
+	*  @param {Boolean} [async=true] If the refresh should be asyncronous
 	*/
-	p.redirect = function(uri, replaceInHistory, allowRefresh, asyncRefresh)
+	p.redirect = function(uri, replaceInHistory, allowRefresh, async)
 	{
 		var state = Canteen.settings.basePath,
 			// Re-encode the title as plain text
@@ -278,7 +278,7 @@
 			
 		replaceInHistory = replaceInHistory === undefined ? false : replaceInHistory;
 		allowRefresh = allowRefresh === undefined ? false : allowRefresh;
-		asyncRefresh = asyncRefresh === undefined ? true : asyncRefresh;
+		async = async === undefined ? true : async;
 
 		// If the uri is not the default one, add it to the base path
 		if (Canteen.settings.siteIndex != uri)
@@ -291,7 +291,7 @@
 		{
 			if (allowRefresh) 
 			{
-				this.refresh(asyncRefresh);
+				this.refresh(async);
 			}
 			else
 			{
@@ -303,7 +303,7 @@
 			return;
 		}
 		
-		if (_historyEnabled)
+		if (_historyEnabled && async)
 		{
 			// Change the history state
 			if (replaceInHistory)

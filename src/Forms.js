@@ -217,12 +217,18 @@
 			var refresh = form.find('input[name="refresh"]');
 
 			// Use data-async="false" to hard refresh the page
-			var asyncRefresh = refresh.data('async');
+			var async = refresh.data('async');
+
+			if (!response.ifError && refresh.length && refresh.val() == 'true')
+			{
+				site.refresh(async);
+				return;
+			} 
 
 			// Check for site redirect
 			if (response.redirect !== undefined)
 			{
-				site.redirect(response.redirect, false, true, asyncRefresh);
+				site.redirect(response.redirect, false, true, async);
 				return;
 			}
 			
@@ -230,12 +236,6 @@
 			{
 				Debug.log(response.messages);
 			}
-			
-			if (!response.ifError && refresh.length && refresh.val() == 'true')
-			{
-				site.refresh(asyncRefresh);
-				return;
-			} 
 			
 			// Show the feedback
 			Forms.formFeedback(form, response.messages);
